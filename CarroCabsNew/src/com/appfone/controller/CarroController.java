@@ -2,10 +2,13 @@ package com.appfone.controller;
 
 import java.io.PrintStream;
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -134,7 +137,7 @@ public class CarroController
   }
   
 
-  @RequestMapping(value={"/Contactinfo"}, method={org.springframework.web.bind.annotation.RequestMethod.POST})
+  @RequestMapping(value="/Contactinfo", method=RequestMethod.POST)
   public ModelAndView contactinfoControll(@RequestParam Map<String, String> reqparameter, HttpServletRequest request)
   {
     HttpSession session = request.getSession();
@@ -150,10 +153,35 @@ public class CarroController
     session.setAttribute("vimage", vimage);
     
 
-    System.out.println("hi hello");
-    System.out.println("car selected is " + car);
+    
     ModelAndView mv = new ModelAndView();
     mv.setViewName("Contactinfo");
+    return mv;
+  }
+  
+  
+  @RequestMapping({"/CarListl"})
+  public ModelAndView carlist1Controll()
+  {
+    ModelAndView mv = new ModelAndView();
+    mv.setViewName("CarList");
+    return mv;
+  }
+  
+  @RequestMapping({"/Booking"})
+  public ModelAndView bookingControll(@RequestParam Map<String, String> reqparam,HttpServletRequest request)
+  {
+	  HttpSession session= request.getSession();
+	  String fullname=reqparam.get("fullname");
+	  String phone=reqparam.get("phone");
+	  String email =reqparam.get("email");
+	  String address=reqparam.get("address");
+	  session.setAttribute("fullname", fullname);
+	  session.setAttribute("phone", phone);
+	  session.setAttribute("email", email);
+	  session.setAttribute("address", address);
+    ModelAndView mv = new ModelAndView();
+    mv.setViewName("booking");
     return mv;
   }
 }

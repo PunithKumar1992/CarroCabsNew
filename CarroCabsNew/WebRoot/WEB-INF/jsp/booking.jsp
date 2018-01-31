@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ page import="com.appfone.carro.Daoimpl.Vehicle_listDaoimpl" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
 <meta charset="utf-8">
@@ -38,19 +38,6 @@
 </script>   
 </head>
 <body>
-<%! int count=0; 
-String[] v_image;
-String[] v_name;
-String[] km_perday;
-String[] price_km;
-String[] driverbata;
-String drbata;
-String drbata1;
-String drbata2;
-String img;
-String imgpath;
-
-%>
 <header class="cp_header">
 <div id="cp-slide-menu" class="cp_side-navigation">
 <ul class="navbar-nav">
@@ -88,13 +75,6 @@ String imgpath;
 <div class="col-md-12">
 </div>
 </div>
-
-<div class="preloader_wrapper" >
-	<div id="pre_loader">
-		<img src="images/loader.gif" alt="">
-	</div>
-</div>
-
 <div class="row" style="background-color:white;">
 <div class="col-md-3 col-sm-12 col-xs-6" >
 
@@ -121,6 +101,8 @@ String imgpath;
 </li>
 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages <i class="fa fa-angle-down"></i></a>
 <ul class="dropdown-menu" role="menu">
+<li><a href="gallery.html">Gallery</a>
+</li>
 <li><a href="testimonial.html">Testimonial</a></li>
 </ul>
 </li>
@@ -145,7 +127,7 @@ String imgpath;
 
 <ul class="breadcrumb">
 <li><a href="index.jsp">Home</a></li>
-<li class="active" style="color: white;">CAR List</li>
+<li><a href="CarList.html">CAR List</a></li>
 </ul>
 </div>
 </div>
@@ -154,67 +136,42 @@ String imgpath;
 </div>
 </div>
 
-
+<div>
 <div class="cp-heading-style1">
-<h2><br>Choose  <span> CAR</span></h4>
+<h2><br>Booking<span>Information</span></h4>
 </div>
-<% 
-Vehicle_listDaoimpl v_list= new Vehicle_listDaoimpl();
-count=v_list.getcountlist();
-v_image=new String[count];
-v_image=v_list.getv_imagelist();
+<div class="col-md-6" style="margin-top:5%">
+<article class="cp-taxi-holder">
 
-v_name=new String[count];
-v_name=v_list.getVehiclenameslist();
+<div class="cp-reservation-box" style="width:100%;height:85%">
+<div class="cp-text">
+<form action="form.php" method="post">
+<div class="inner-holder">
 
-km_perday=new String[count];
-km_perday=v_list.getkm_per_daylist();
+<input type="text" placeholder="Your Name" name="name" required pattern="[a-zA-Z ]+">
+</div>
+<div class="inner-holder">
 
-price_km=new String[count];
-price_km=v_list.getprice_kmlist();
+<input type="text" placeholder="Phone Number" name="name" required pattern="[789][0-9]{9}">
+</div>
+<div class="inner-holder">
 
-driverbata=new String[count];
-driverbata=v_list.getdriverbatalist();
+<input type="text" placeholder="Email" name="name" required pattern="^[a-zA-Z0-9-\_.]+@[a-zA-Z0-9-\_.]+\.[a-zA-Z0-9.]{2,5}$">
+</div>
+<div class="inner-holder">
 
+<textarea row="15" col="15" placeholder="address" name="email" required style="resize:none;"></textarea>
 
-for(int i=0;i<count;i++)
-{
-img=v_image[i];
-imgpath="images/vehicleimages/"+img;
-drbata=driverbata[i];
-drbata1=drbata.substring(0,6);
-drbata2=drbata.substring(6);
-out.println("<div class='col-md-3' style='margin-top:5%'>");
-out.println("<form action='Contactinfo.html' method='post'>");
-out.println("<article class='cp-taxi-holder' style='height: 443px;'>");
-out.println("<figure class='cp-thumb'>");
-out.println("<img src='"+imgpath+"' alt='car image' >");
-out.println("</figure>");
-out.println("<div class='cp-text'>");
-out.println("<h4 name='car'  style='color:#bf3738';>"+v_name[i]+"<br></h4>");
-out.println("<ul class='cp-meta-listed'>");
-out.println("<li>Per DAy: <span>"+km_perday[i]+"</span></li>");
-out.println("<li>Price: <strong>"+price_km[i]+"</strong></li>");
-out.println("<li>Driver Bata: <strong>"+drbata1+"<br>"+drbata2+" </strong></li>");
+<input type="submit" value="Submit">
+</div>
+</form>
+</div>
+</div>
+</article>
+</div>
+</div>
+</div>
 
-out.println("</ul>");
-out.println("<input type='hidden' value='"+v_name[i]+"' name='car'>");
-out.println("<input type='hidden' value='"+km_perday[i]+"' name='perday'>");
-out.println("<input type='hidden' value='"+price_km[i]+"' name='price'>");
-out.println("<input type='hidden' value='"+driverbata[i]+"' name='driverbata'>");
-out.println("<input type='hidden' value='"+v_image[i]+"' name='vimage'>");
-
-
-
-out.println("<input type='submit' value='select' class='cp-btn-style1' style='margin-top: -6%;margin-left: 23%; background-color:#f4a111; font-size: 20px; border-radius: 10px;' >");
-out.println("</form>");
-
-out.println("</div>");
-out.println("</article>");
-out.println("</div>");
-}
-
-%>
 <footer class="cp_footer">
 
 <section class="cp-ft-top-section pd-t80">
@@ -280,13 +237,5 @@ out.println("</div>");
 <script type="text/javascript" src="js/owl.carousel.min.js"></script>
 
 <script type="text/javascript" src="js/custom-script.js"></script>
-
-<script language="javascript" type="text/javascript">
-     $(window).load(function() {
-     /* $('.preloader_wrapper').hide();
-  */
-  $('.preloader_wrapper').delay(600).fadeOut("slow"); 
-   });
-</script>
 </body>
 </html>

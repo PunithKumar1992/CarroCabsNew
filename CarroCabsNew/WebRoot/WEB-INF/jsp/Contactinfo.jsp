@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
 <meta charset="utf-8">
@@ -37,6 +38,25 @@
 </script>   
 </head>
 <body>
+<%! String carimg;
+String car;
+String days;
+String price;
+String  perday;
+String driverbata;
+String distance;
+String way;
+String sdistance=null;
+double idays;
+double iprice;
+double iperday;
+double idriverbata;
+double idistance;
+double basicamt;
+double gst;
+double grandtotal;
+
+ %>
 <header class="cp_header">
 <div id="cp-slide-menu" class="cp_side-navigation">
 <ul class="navbar-nav">
@@ -54,8 +74,11 @@
 <li><a href=packages.html">Packages</a></li>
 <li><a href="faq.html">FAQs</a>
 </li>
+<!-- <li><a href="booking.html">View a booking</a> -->
 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages <i class="fa fa-angle-down"></i></a>
 <ul class="dropdown-menu" role="menu">
+<li><a href="gallery.html">Gallery</a>
+</li>
 <li><a href="testimonial.html">Testimonial</a></li>
 </ul>
 </li>
@@ -63,12 +86,6 @@
 </a>
 </li>
 </ul>
-</div>
-
-<div class="preloader_wrapper" >
-	<div id="pre_loader">
-		<img src="images/loader.gif" alt="">
-	</div>
 </div>
 
 <div class="cp-navigation-row">
@@ -103,7 +120,8 @@
 </li>
 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages <i class="fa fa-angle-down"></i></a>
 <ul class="dropdown-menu" role="menu">
-
+<li><a href="gallery.html">Gallery</a>
+</li>
 <li><a href="testimonial.html">Testimonial</a></li>
 </ul>
 </li>
@@ -121,14 +139,14 @@
 </div>
 </header>
 <div class="cp_inner-banner">
-<img src="images/banner/inner-banner-img-08.png" alt="">
+<img src="images/banner/inner-banner-img-02.png" alt="">
 
 <div class="cp-inner-banner-holder">
 <div class="container">
 
 <ul class="breadcrumb">
 <li><a href="index.jsp">Home</a></li>
-<li class="active" style="color: white;">Contact-information</li>
+<li><a href="CarList.html">CAR List</a></li>
 </ul>
 </div>
 </div>
@@ -137,40 +155,164 @@
 </div>
 </div>
 
-
-<div id="cp-main-content">
-
-<section class="cp-reservation-section pd-tb80">
-<div class="container">
-<div class="cp-heading-style1" style="color: white;">
+<div>
+<div class="cp-heading-style1">
+<h2><br>Contact<span>Information</span></h4>
 </div>
 
-<div class="cp-reservation-box cp-login-box">
-<h3>Contact Information</h3>
-<form action="form.php" method="post">
+<div class="col-md-6" style="margin-top:5%">
+<article class="cp-taxi-holder">
+
+<div class="cp-reservation-box" style="width:100%;height:85%">
+<div class="cp-text">
+<form action="Booking.html" method="post">
 <div class="inner-holder">
-<label>Enter Your Name</label>
-<input type="text" placeholder="Your Name" name="name" required pattern="[a-zA-Z ]+">
+
+<input type="text" placeholder="Full Name" name="fullname" required pattern="[a-zA-Z ]+">
 </div>
 <div class="inner-holder">
-<label>Address</label>
-<input type="text" placeholder="Your Name" name="name" required pattern="[a-zA-Z ]+">
+
+<input type="text" placeholder="Phone Number" name="phone" required pattern="[789][0-9]{9}">
 </div>
 <div class="inner-holder">
-<label>Phone Number</label>
-<input type="text" placeholder="Your Name" name="name" required pattern="[a-zA-Z ]+">
+
+<input type="text" placeholder="Email" name="email" required pattern="^[a-zA-Z0-9-\_.]+@[a-zA-Z0-9-\_.]+\.[a-zA-Z0-9.]{2,5}$">
 </div>
 <div class="inner-holder">
-<label>Email Adderess</label>
-<input type="text" placeholder="Email Address" name="email" required pattern="^[a-zA-Z0-9-\_.]+@[a-zA-Z0-9-\_.]+\.[a-zA-Z0-9.]{2,5}$">
-</div>
-<div class="inner-holder">
-<a href="payment Gateway"><button type="submit" class="submit">Next</button></a>
+
+<textarea row="15" col="15" placeholder="address" name="address" required style="resize:none;"></textarea>
+
+<input type="submit" value="Submit">
 </div>
 </form>
 </div>
 </div>
-</section>
+</article>
+</div>
+<%
+carimg=session.getAttribute("vimage").toString();
+car=session.getAttribute("car").toString();
+way=session.getAttribute("way").toString();
+days=session.getAttribute("day").toString();
+price=session.getAttribute("price").toString();
+perday=session.getAttribute("perday").toString();
+driverbata=session.getAttribute("driverbata").toString();
+distance=session.getAttribute("distance").toString();
+
+int i=distance.length();
+switch(i)
+{
+case 4:
+	sdistance=distance.substring(0,1);
+	break;
+case 5:
+	sdistance=distance.substring(0,2);
+	break;
+case 6:
+	sdistance=distance.substring(0,3);
+	break;
+case 8:
+	distance=distance.replace(",","");
+	sdistance=distance.substring(0,4);
+	break;
+case 9:
+	distance=distance.replace(",","");
+	sdistance=distance.substring(0,5);
+	break;
+default:break;
+}
+
+
+
+
+days=days.substring(0,1);
+idays=Double.parseDouble(days);
+iprice=Double.valueOf(price.substring(0,3));
+iperday =Double.valueOf(perday.substring(0, 3));
+idriverbata=Double.valueOf(driverbata.substring(0, 3));
+idistance=Double.parseDouble(sdistance);
+System.out.println("way is " +way);
+System.out.println("idays is " +idays);
+System.out.println("iprice is " +iprice);
+System.out.println("iperday is " +iperday);
+System.out.println("idriverbata is " +idriverbata);
+System.out.println("idistance is " +idistance);
+
+if(way.equals("Round Trip"))
+{
+
+idistance=idistance*2;
+
+
+}
+
+if(way.equals("One Way"))
+{
+if(idistance>iperday)
+{
+
+		basicamt=idistance*iprice;
+		Math.round(basicamt);
+		idriverbata=idriverbata*idays;
+		Math.round(idriverbata);
+		gst=((basicamt+idriverbata)*0.05);
+		Math.round(gst);
+		grandtotal=(basicamt+idriverbata+gst);
+		Math.round(grandtotal);
+
+}
+else if(idistance<iperday)
+{
+	basicamt=iperday*iprice;
+	Math.round(basicamt);
+	idriverbata=idriverbata*idays;
+	Math.round(idriverbata);
+	gst=((basicamt+idriverbata)*0.05);
+	Math.round(gst);
+	grandtotal=(basicamt+idriverbata+gst);
+	Math.round(grandtotal);
+}
+
+}
+else if(way.equals("Round Trip"))
+{
+	basicamt=iperday*iprice*idays;
+	Math.round(basicamt);
+	idriverbata=idriverbata*idays;
+	Math.round(idriverbata);
+	gst=((basicamt+idriverbata)*0.05);
+	Math.round(gst);
+	grandtotal=(basicamt+idriverbata+gst);
+  	Math.round(grandtotal);
+}
+
+
+out.println("<form action='CarListl.html' method='post'");
+out.println("<div class='col-md-3' style='margin-top:5%'>");
+out.println("<article class='cp-taxi-holder' style='height: 443px;'>");
+out.println("<figure class='cp-thumb'>");
+out.println("<img src='images/vehicleimages/"+carimg +"' alt=''>");
+out.println("</figure>");
+out.println("<div class='cp-text'>");
+out.println("<h4 style='color:#bf3738'>"+car+"</h4>");
+out.println("<ul class='cp-meta-listed'>");
+out.println("<li>Base Price: <span> "+basicamt+"</span></li>");
+out.println("<li>Driver Bata: <strong>"+idriverbata+"</strong></li>");
+out.println("<li>Gst: <strong>"+gst+"</strong></li>");
+out.println("<li>Total approx: <strong>"+grandtotal+" </strong></li>");
+out.println("<input type='submit' value='Change Car'>");
+out.println("</ul>");
+out.println("</div>");
+out.println("</article>");
+out.println("</div>");
+%>
+
+
+
+
+
+
+</div>
 </div>
 
 <footer class="cp_footer">
@@ -238,13 +380,5 @@
 <script type="text/javascript" src="js/owl.carousel.min.js"></script>
 
 <script type="text/javascript" src="js/custom-script.js"></script>
-
-<script language="javascript" type="text/javascript">
-     $(window).load(function() {
-     /* $('.preloader_wrapper').hide();
-  */
-  $('.preloader_wrapper').delay(600).fadeOut("slow"); 
-   });
-</script>
 </body>
 </html>
