@@ -37,7 +37,22 @@
   <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyBS18tx1fKZDmGkHjsyQoXm2cYbH5xI88M&sensor=false&libraries=places" type="text/javascript">
 </script>   
 </head>
-<body>
+<body onload="get_rout()">
+<%! 
+
+String  car;
+String price;
+String perday;
+String driverbata;
+String source;
+String destination;
+String distance;
+String days;
+String basicamt;
+String bata;
+String gst;
+String grandtotal;
+  %>
 <header class="cp_header">
 <div id="cp-slide-menu" class="cp_side-navigation">
 <ul class="navbar-nav">
@@ -138,40 +153,114 @@
 
 <div>
 <div class="cp-heading-style1">
-<h2><br>Booking<span>Information</span></h4>
+<h2><br>Booking<span> Information</span></h4>
 </div>
-<div class="col-md-6" style="margin-top:5%">
-<article class="cp-taxi-holder">
+<% 
+car = session.getAttribute("car").toString();
+price=session.getAttribute("price").toString();
+perday=session.getAttribute("perday").toString();
+driverbata=session.getAttribute("driverbata").toString();
+source=session.getAttribute("source").toString();
+destination=session.getAttribute("destination").toString();
+distance=session.getAttribute("distance").toString();
+days=session.getAttribute("day").toString();
+basicamt=session.getAttribute("basicamt").toString();
+bata=session.getAttribute("driverbata").toString();
+gst=session.getAttribute("gst").toString();
+grandtotal=session.getAttribute("grandtotal").toString();
 
-<div class="cp-reservation-box" style="width:100%;height:85%">
-<div class="cp-text">
-<form action="form.php" method="post">
-<div class="inner-holder">
+out.println("<div class='col-md-6' style='margin-top:5%'>");
+out.println("<article class='cp-taxi-holder'>");
 
-<input type="text" placeholder="Your Name" name="name" required pattern="[a-zA-Z ]+">
-</div>
-<div class="inner-holder">
+out.println("<div class='cp-reservation-box' style='width:100%;height:85%';>");
+out.println("<div class='cp-text'>");
 
-<input type="text" placeholder="Phone Number" name="name" required pattern="[789][0-9]{9}">
-</div>
-<div class="inner-holder">
+out.println("<form action='' method='post'>");
+out.println("<div class='inner-holder'>");
+out.println("<table class='table' style='margin-top:-4%;margin-left:-41%'>");
+out.println("<tr>");
+out.println("<th style='border:none;'>Selected Vechile :</th>" );
+out.println("<td style='border:none;'>" +car+"</td>");
+out.println("</tr>");
+out.println("<br>");
 
-<input type="text" placeholder="Email" name="name" required pattern="^[a-zA-Z0-9-\_.]+@[a-zA-Z0-9-\_.]+\.[a-zA-Z0-9.]{2,5}$">
-</div>
-<div class="inner-holder">
+out.println("<tr>");
+out.println("<th style='border:none;'>Price:</th>" );
+out.println("<td style='border:none;'>" +price+"</td>");
+out.println("</tr>");
 
-<textarea row="15" col="15" placeholder="address" name="email" required style="resize:none;"></textarea>
+out.println("<tr>");
+out.println("<th style='border:none;'>Per Day:</th>" );
+out.println("<td style='border:none;'>" +perday+"</td>");
+out.println("</tr>");
 
-<input type="submit" value="Submit">
-</div>
-</form>
-</div>
-</div>
-</article>
-</div>
-</div>
-</div>
+out.println("<tr>");
+out.println("<th style='border:none;'>Driver Bata:</th>" );
+out.println("<td style='border:none;'>" +driverbata+"</td>");
+out.println("</tr>");
 
+out.println("<tr>");
+out.println("<th style='border:none;'>Pickup Point:</th>" );
+out.println("<td style='border:none;'>" +source+"</td>");
+out.println("</tr>");
+
+
+out.println("<tr>");
+out.println("<th style='border:none;'>Distination Point:</th>" );
+out.println("<td style='border:none;'>" +destination+"</td>");
+out.println("</tr>");
+
+
+out.println("<tr>");
+out.println("<th style='border:none;'>Distance:</th>" );
+out.println("<td style='border:none;'>"+distance +"</td>");
+out.println("</tr>");
+
+out.println("<tr>");
+out.println("<th style='border:none;'>Number of Travelling Days:</th>" );
+out.println("<td style='border:none;'>" +days+"</td>");
+out.println("</tr>"); 
+
+out.println("<tr>");
+out.println("<th style='border:none;'>Basic Amount:</th>" );
+out.println("<td style='border:none;'>" +basicamt+"</td>");
+out.println("</tr>");
+
+out.println("<tr>");
+out.println("<th style='border:none;'>Driver Bata:</th>" );
+out.println("<td style='border:none;'>" +driverbata+"</td>");
+out.println("</tr>");
+
+out.println("<tr>");
+out.println("<th style='border:none;'>Gst Amount:</th>" );
+out.println("<td style='border:none;'>" +gst+"</td>");
+out.println("</tr>");
+
+
+out.println("<tr>");
+out.println("<th style='border:none;'>Toatl <b>Approx.</b> Amount:</th>" );
+out.println("<td style='border:none;'>" +grandtotal+"</td>");
+out.println("</tr>");
+out.println("</table>");
+out.println("<input type='hidden' name='source' id='source'  value='" +source+"'/>");
+out.println("<input type='hidden' name='destination' id='destination'  value='" +destination+"'/>");
+
+out.println("<input type='submit' value='proceed'>");
+out.println("</div>");
+out.println("</form>");
+
+out.println("</div>");
+out.println("</div>");
+out.println("</article>");
+out.println("</div>");
+
+
+out.println("<div class='col-md-6' id='maplocation' style='height:350px;background-color:#d6e0e4;border: 2px solid #6691bd;width:40%;margin-top: 17%;'; >");
+
+out.println("</div>");
+out.println("</div>");
+out.println("</div>");
+%>
 <footer class="cp_footer">
 
 <section class="cp-ft-top-section pd-t80">
@@ -237,5 +326,122 @@
 <script type="text/javascript" src="js/owl.carousel.min.js"></script>
 
 <script type="text/javascript" src="js/custom-script.js"></script>
+
+	<script type="text/javascript">
+	        var source, destination;
+	        var darection = new google.maps.DirectionsRenderer;
+	        var directionsService = new google.maps.DirectionsService;
+	        google.maps.event.addDomListener(window, 'load', function () {
+	            new google.maps.places.SearchBox(document.getElementById('source'));
+	            new google.maps.places.SearchBox(document.getElementById('destination'));
+	            
+	        });
+
+	        function get_rout() {
+	        	var source1=document.getElementById('source').value;
+	        	var destination1=document.getElementById("destination").value;
+	            var mapOptions = {
+	                mapTypeControl: false,
+	                center: {lat: -33.8688, lng: 151.2195},
+	                zoom: 13
+	            };
+	           
+	            map = new google.maps.Map(document.getElementById('maplocation'), mapOptions);
+	            darection.setMap(map);
+	            darection.setPanel(document.getElementById('panallocation'));
+
+
+	            source = document.getElementById("source").value;
+	            destination = document.getElementById("destination").value;
+
+	            var request = {
+	                origin: source,
+	                destination: destination,
+	                travelMode: google.maps.TravelMode.DRIVING
+	            };
+	            directionsService.route(request, function (response, status) {
+	                if (status == google.maps.DirectionsStatus.OK) {
+	                    darection.setDirections(response);
+	                }
+	            });
+
+
+	            
+	            var service = new google.maps.DistanceMatrixService();
+	            service.getDistanceMatrix({
+	                origins: [source],
+	                destinations: [destination],
+	                travelMode: google.maps.TravelMode.DRIVING,
+	                unitSystem: google.maps.UnitSystem.METRIC,
+	                avoidHighways: false,
+	                avoidTolls: false
+	            }, function (response, status) {
+	                if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
+	                    var distance = response.rows[0].elements[0].distance.text;
+	                    var duration = response.rows[0].elements[0].duration.text;
+	                    
+	                    distancefinel = distance.split(" ");
+	                    $('.distance').val(distancefinel[0]);
+	                   
+	                    
+	                    
+	                } else {
+	                    alert("Unable to find the distance via road.");
+	                }
+	            });
+	        }
+	        
+	        var input = document.getElementById('source');
+	var options = {
+	   componentRestrictions: {
+	       country: 'in'
+	   }
+	};
+
+	var autocomplete = new google.maps.places.Autocomplete(input, options);
+
+	$(input).on('input',function(){
+	var str = input.value;
+	 var prefix = 'BANGALORE, ';
+	if(str.indexOf(prefix) == 0) {
+	console.log(input.value);
+	} else {
+	if (prefix.indexOf(str) >= 0) {
+	   	input.value = prefix;
+	   } else {
+	 	input.value = prefix+str;
+	  }
+	}
+
+	});
+	    
+	var input1 = document.getElementById('destination');
+	var options1 = {
+	   componentRestrictions: {
+	       country: 'in'
+	   }
+	};
+
+	var autocomplete = new google.maps.places.Autocomplete(input, options1);
+
+	$(input1).on('input',function(){
+	var str = input1.value;
+	 var prefix = 'INDIA, ';
+	if(str.indexOf(prefix) == 0) {
+	console.log(input.value);
+	} else {
+	if (prefix.indexOf(str) >= 0) {
+	   	input1.value = prefix;
+	   } else {
+	 	input1.value = prefix+str;
+	  }
+	}
+
+	});    
+	        
+	
+	    </script>
+
+
 </body>
 </html>

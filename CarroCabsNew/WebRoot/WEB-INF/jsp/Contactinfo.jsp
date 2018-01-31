@@ -286,7 +286,10 @@ else if(way.equals("Round Trip"))
   	Math.round(grandtotal);
 }
 
-
+session.setAttribute("basicamt", basicamt);
+session.setAttribute("driverbata",idriverbata);
+session.setAttribute("gst", gst);
+session.setAttribute("grandtotal", grandtotal);
 out.println("<form action='CarListl.html' method='post'");
 out.println("<div class='col-md-3' style='margin-top:5%'>");
 out.println("<article class='cp-taxi-holder' style='height: 443px;'>");
