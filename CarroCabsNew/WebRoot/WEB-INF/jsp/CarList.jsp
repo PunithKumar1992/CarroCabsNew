@@ -159,7 +159,6 @@ String imgpath;
 <h2><br>Choose  <span> CAR</span></h4>
 </div>
 <% 
-
 Vehicle_listDaoimpl v_list= new Vehicle_listDaoimpl();
 count=v_list.getcountlist();
 v_image=new String[count];
