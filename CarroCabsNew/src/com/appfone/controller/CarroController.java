@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.appfone.carro.Daoimpl.AirportbookingDaoimpl;
+import com.appfone.carro.Daoimpl.TripbookingDaoimpl;
 import com.appfone.carro.util.EmailUtility;
 import com.appfone.carro.util.SmsApi;
 import com.appfone.carro.util.TripPdf;
@@ -221,7 +223,9 @@ public class CarroController
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	  
+	    TripbookingDaoimpl tpb=new TripbookingDaoimpl();
+	    tpb.saveTrip(request);
+		
 		EmailUtility email1 = new EmailUtility();
 		email1.sendMail(to, subject, msg, absoluteDiskPath, fullname);
 		email1.sendMail("seema.yaladagi156@gmail.com", "Rider Booking Details", "Find the booking Details in the below Attachment", absoluteDiskPath, fullname);
@@ -243,5 +247,70 @@ public class CarroController
     return mv;
   }
 
+  @RequestMapping(value="/AirCarList",method=RequestMethod.POST)
+  public ModelAndView aircarlistControll(@RequestParam Map<String, String>reqparam,HttpServletRequest request)
+  {
+	HttpSession session = request.getSession();
+	String airway=reqparam.get("airway");
+	String airsource=reqparam.get("airsource");
+	String airdestination=reqparam.get("airdestination");
+	String airdate=reqparam.get("airdate");
+	
+	session.setAttribute("airway", airway);
+	session.setAttribute("airsource", airsource);
+	session.setAttribute("airdestination", airdestination);
+	session.setAttribute("airdate", airdate);
+	
+    ModelAndView mv = new ModelAndView();
+    mv.setViewName("aircarlist");
+    return mv;
+  }
   
+  @RequestMapping({"/Aircontactinfo"})
+  public ModelAndView aircontactinfoControll(@RequestParam Map<String, String> reqparam,HttpServletRequest request)
+  {
+	  HttpSession session=request.getSession();
+	  String aircar=reqparam.get("aircar");
+	  String airbasicamt=reqparam.get("airbasicamt");
+	  String airgst=reqparam.get("airgst");
+	  String airtotal=reqparam.get("airtotal");
+	  
+	  session.setAttribute("aircar", aircar);
+	  session.setAttribute("airbasicamt", airbasicamt);
+	  session.setAttribute("airgst", airgst);
+	  session.setAttribute("airtotal", airtotal);
+	  
+	  
+    ModelAndView mv = new ModelAndView();
+    mv.setViewName("aircontactinfo");
+    return mv;
+  }
+  
+  @RequestMapping(value="/airBooking",method=RequestMethod.POST)
+  public ModelAndView airbookingControll(@RequestParam Map<String, String>reqparam,HttpServletRequest request)
+  {
+	  HttpSession session = request.getSession();
+	  
+	String airfullname=reqparam.get("airfullname");
+	String airphone=reqparam.get("airphone");
+	String airemail=reqparam.get("airemail");
+	String airaddress=reqparam.get("airaddress");
+	session.setAttribute("airfullname", airfullname);
+	session.setAttribute("airphone", airphone);
+	session.setAttribute("airemail", airemail);
+	session.setAttribute("airaddress", airaddress);
+    ModelAndView mv = new ModelAndView();
+    mv.setViewName("airBooking");
+    return mv;
+  }
+  
+  @RequestMapping(value="/airportFinal",method=RequestMethod.POST)
+  public ModelAndView airportFinalControll(HttpServletRequest request)
+  {
+	  AirportbookingDaoimpl airport=new AirportbookingDaoimpl();
+	  airport.saveTrip(request);
+    ModelAndView mv = new ModelAndView();
+    mv.setViewName("popup");
+    return mv;
+  }
 }

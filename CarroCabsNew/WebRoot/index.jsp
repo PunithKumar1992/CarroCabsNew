@@ -126,8 +126,9 @@
 <div class="cp-faq-holder" style="margin-top:18%;">
 
 <ul class="nav nav-tabs" role="tablist">
-<li class="active"><a href="#ask-tab1" aria-controls="ask-tab1" role="tab" data-toggle="tab">CARRO Car</a></li>
-<li  style="margin-top: 0.5%;"><a href="#ask-tab2" aria-controls="ask-tab2" role="tab" data-toggle="tab">Hotels</a></li>
+<li class="active" style="margin-top: 1%;"><a href="#ask-tab1" aria-controls="ask-tab1" role="tab" data-toggle="tab">CARRO Car</a></li>
+<li style="margin-top: 1%;"><a href="#ask-tab2" aria-controls="ask-tab2" role="tab" data-toggle="tab">Hotels</a></li>
+<li><a href="#ask-tab3" aria-controls="ask-tab3" role="tab" data-toggle="tab">Airport Pick/Drop</a></li>
 </ul>
 
 <div class="tab-content">
@@ -290,9 +291,35 @@ cursor:not-allowed;
 <div role="tabpanel" class="tab-pane fade in" id="ask-tab2">
 
 <div class="cp-ask-tab-inner">
-<p>COMMING SOON... </p>
-<form method="get">
-<textarea>COMMING SOON...</textarea>
+<p style="color:white;font-size:25px;">COMMING SOON... </p>
+</div>
+</div>
+<div role="tabpanel" class="tab-pane fade in" id="ask-tab3">
+
+<div class="cp-ask-tab-inner">
+<form method="post" action="AirCarList.html">
+
+<div class="col-md-2">
+  <select onChange="myfunction2()" id="airway" name="airway"  required>
+						<option value="" disabled selected>&#xf1ba Select Way</option> 
+						<option value="PickUp" >PickUp</option>
+						<option value="Drop">Drop</option>
+						<option value="both">Both</option>
+						</select>
+						</div>
+<div class="col-md-2 wrapper">
+<input type="text"  name="airsource"  id="airsource" placeholder="&#xf015; Pickup Point" required>
+	
+    </div>
+    <div class="col-md-2">
+<input type="text"  name="airdestination"  id="airdestination" placeholder="&#xf015; Destination" required/>
+  </div>
+  <div class="col-md-2">  
+<input type="text"  id="datepicker2" name="airdate" placeholder="&#xf073; Date"  required/>
+</div>
+<div class="col-md-2">
+<input type="submit" value="Go">
+</div>
 
 </form>
 </div>
@@ -928,6 +955,24 @@ if (prefix.indexOf(str) >= 0) {
     </script>
     
        </script>
+       
+       <script src="js/pikaday.js"></script>
+    <script>
+
+    var picker = new Pikaday(
+    {
+        field: document.getElementById('datepicker2'),
+        firstDay: 1,
+        minDate: new Date(),
+        maxDate: new Date(2020, 12, 31),
+        yearRange: [2000,2020]
+    });
+
+    </script>
+    
+       </script>
+       
+       
 <script type="text/javascript">
 
 function myfunction()
@@ -1133,5 +1178,156 @@ $(document).ready(function(){
 <script src="js/jquery.slimscroll.js"></script>
 <script src="js/jquery.nicescroll.js"></script>
 <script src="js/jquery.scrollTo.js"></script>
+
+<script type="text/javascript">
+function myfunction2()
+{
+var way =$("#airway").val();
+if(way=="PickUp")
+{
+var source="Kempegowda International Airport, KIAL Road, Devanahalli, Bengaluru, Karnataka, India";
+$("#airsource").val(source);
+
+}
+else if(way=="Drop")
+{
+var source="Kempegowda International Airport, KIAL Road, Devanahalli, Bengaluru, Karnataka, India";
+$("#airsource").val("");
+$("#airdestination").val(source);
+}
+
+else
+{
+$("#airsource").val("");
+$("#airdestination").val("");
+
+
+}
+
+
+
+
+
+}
+</script>
+
+
+
+<!-- air port autocomplete -->
+<script type="text/javascript">
+        var source, destination;
+	        var darection = new google.maps.DirectionsRenderer;
+	        var directionsService = new google.maps.DirectionsService;
+	        google.maps.event.addDomListener(window, 'load', function () {
+	            new google.maps.places.SearchBox(document.getElementById('airsource'));
+	            new google.maps.places.SearchBox(document.getElementById('airdestination'));
+	            
+	        });
+
+	        function get_rout() {
+	        	
+	        	var source1=document.getElementById('airsource').value;
+	        	var destination1=document.getElementById('airdestination').value;
+	            var mapOptions = {
+	                mapTypeControl: false,
+	                center: {lat: -33.8688, lng: 151.2195},
+	                zoom: 13
+	            };
+	           source = document.getElementById("airsource").value;
+	           
+	            destination = document.getElementById("airdestination").value;
+	            
+	            
+
+	            var request = {
+	                origin: source,
+	                destination: destination,
+	                travelMode: google.maps.TravelMode.DRIVING
+	            };
+	            directionsService.route(request, function (response, status) {
+	                if (status == google.maps.DirectionsStatus.OK) {
+	                    darection.setDirections(response);
+	                }
+	            });
+
+
+	            
+	            var service = new google.maps.DistanceMatrixService();
+	            service.getDistanceMatrix({
+	                origins: [source],
+	                destinations: [destination],
+	                travelMode: google.maps.TravelMode.DRIVING,
+	                unitSystem: google.maps.UnitSystem.METRIC,
+	                avoidHighways: false,
+	                avoidTolls: false
+	            }, function (response, status) {
+	                if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
+	                    var distance = response.rows[0].elements[0].distance.text;
+	                    var duration = response.rows[0].elements[0].duration.text;
+	                    
+	                    distancefinel = distance.split(" ");
+	                    $('.distance').val(distancefinel[0]);
+	                    
+	                } else {
+	                    alert("Unable to find the distance via road.");
+	                }
+	            });
+	        }
+	        
+	        var input = document.getElementById('airsource');
+	var options = {
+	   componentRestrictions: {
+	       country: 'in'
+	   }
+	};
+
+	var autocomplete = new google.maps.places.Autocomplete(input, options);
+
+	$(input).on('input',function(){
+	var str = input.value;
+	 var prefix = 'BANGALORE, ';
+	if(str.indexOf(prefix) == 0) {
+	console.log(input.value);
+	} else {
+	if (prefix.indexOf(str) >= 0) {
+	   	input.value = prefix;
+	   } else {
+	 	input.value = prefix+str;
+	  }
+	}
+
+	});
+	    
+	var input1 = document.getElementById('airdestination');
+	var options1 = {
+	   componentRestrictions: {
+	       country: 'in'
+	   }
+	};
+
+	var autocomplete = new google.maps.places.Autocomplete(input, options1);
+
+	$(input1).on('input',function(){
+	var str = input1.value;
+	 var prefix = 'BANGALORE, ';
+	if(str.indexOf(prefix) == 0) {
+	console.log(input.value);
+	} else {
+	if (prefix.indexOf(str) >= 0) {
+	   	input1.value = prefix;
+	   } else {
+	 	input1.value = prefix+str;
+	  }
+	}
+
+	});    
+	
+
+
+</script>
+
+
+
+
 </body>
 </html>

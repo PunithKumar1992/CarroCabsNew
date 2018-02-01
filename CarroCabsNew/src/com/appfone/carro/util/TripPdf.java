@@ -52,15 +52,7 @@ import com.itextpdf.text.Paragraph;
 
 
 
-@WebServlet("/PdfServlet")
-
-
 public class TripPdf  {
-	private String host;
-	private String port;
-	private String user;
-	private String pass;
-	
 
 	
 	

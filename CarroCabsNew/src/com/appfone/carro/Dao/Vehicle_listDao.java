@@ -1,5 +1,7 @@
 package com.appfone.carro.Dao;
 
+import javax.servlet.http.HttpServletRequest;
+
 public interface Vehicle_listDao {
 	
 	public abstract String[] getVehiclenameslist();
@@ -13,5 +15,5 @@ public interface Vehicle_listDao {
 	  public abstract String[] getv_imagelist();
 	  
 	  public abstract int getcountlist();
-
+	  
 }

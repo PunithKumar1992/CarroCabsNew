@@ -17,4 +17,60 @@
             
   </class>  
             
+            
+      <class name="com.appfone.carro.pojo.Tripbooking" table="tripbooking">  
+    <id name="tb_id">  
+     <generator class="increment"></generator>  
+    </id>  
+            
+   <property name="vehicle"></property>
+   <property name="per_day"></property>
+   <property name="per_km"></property>
+   <property name="driverbata"></property>
+   <property name="source"></property>
+   <property name="destination"></property>
+   <property name="distance"></property>
+   <property name="cust_name"></property>
+   <property name="trav_date"></property>
+   <property name="cust_email"></property>
+   <property name="cust_phone"></property>
+   <property name="cust_address"></property>
+   <property name="travelling_days"></property>
+   <property name="basic_amt"></property>
+   <property name="final_bata"></property>
+   <property name="gst"></property>
+   <property name="total_approx"></property>
+  
+            
+  </class>         
+   <class name="com.appfone.carro.pojo.Airvehicle_list" table="airvehicle_list">  
+    <id name="v_id">  
+     <generator class="increment"></generator>  
+    </id>  
+            
+   <property name="vehicle"></property>
+   <property name="base_price"></property>
+   <property name="gst"></property>
+   <property name="total"></property>
+   <property name="v_image"></property>
+            
+  </class>  
+  
+      
+   <class name="com.appfone.carro.pojo.Airportbooking" table="airportbooking">  
+    <id name="airb_id">  
+     <generator class="increment"></generator>  
+    </id>  
+            
+   <property name="vehicle"></property>
+   <property name="source"></property>
+   <property name="destination"></property>
+   <property name="date"></property>
+   <property name="basicamt"></property>
+   <property name="gst"></property>
+   <property name="total"></property>
+   
+  </class>  
+  
+  
  </hibernate-mapping>  
