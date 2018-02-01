@@ -1,16 +1,24 @@
 package com.appfone.controller;
 
+import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Map;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.appfone.carro.util.EmailUtility;
+import com.appfone.carro.util.SmsApi;
+import com.appfone.carro.util.TripPdf;
 
 
 
@@ -18,6 +26,8 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class CarroController
 {
+	@Autowired
+	private ServletContext context; 
   public CarroController() {}
   
   @RequestMapping({"/about"})
@@ -184,4 +194,54 @@ public class CarroController
     mv.setViewName("booking");
     return mv;
   }
+  
+  @RequestMapping({"/Final"})
+  public ModelAndView FinalControll(HttpServletRequest  request,HttpServletResponse response)
+  {
+	  HttpSession session = request.getSession();
+	  String fullname=session.getAttribute("fullname").toString();
+	  String relativeWebPath = "/resource/pdf/"+fullname +".pdf";
+		String absoluteDiskPath = context.getRealPath(relativeWebPath);
+		System.out.println("absolutepath is" +absoluteDiskPath);
+		String imgrelativePath = "/images/cp-logo.png";
+		String imgabsolutePath = context.getRealPath(imgrelativePath);
+		String to=session.getAttribute("email").toString();
+		String subject="Booking Confirmation Mail";
+		String msg ="Thank You for Using Carrocabs."+"\n" +" Your Booking is confirmed. Our Representative will Contatct You soon."+"\n"+"Find Your Booking Details in the below attacthment" +"\n" +"For More Queries Contact This No: 9342424268";
+		
+		String phonenumber= session.getAttribute("phone").toString();
+		String car = session.getAttribute("car").toString();
+		String source=session.getAttribute("source").toString();
+		String destination=session.getAttribute("destination").toString();
+		String email=session.getAttribute("email").toString();
+		String grandtotal=session.getAttribute("grandtotal").toString();
+		TripPdf tpdf=new TripPdf();
+		try {
+			tpdf.createPdf(request, response, absoluteDiskPath, imgabsolutePath);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	  
+		EmailUtility email1 = new EmailUtility();
+		email1.sendMail(to, subject, msg, absoluteDiskPath, fullname);
+		email1.sendMail("seema.yaladagi156@gmail.com", "Rider Booking Details", "Find the booking Details in the below Attachment", absoluteDiskPath, fullname);
+		email1.delfile(absoluteDiskPath);
+		
+		 new SmsApi().sendSms(phonenumber, "Thank You For Choosing carrocabs. Your Booking is Confirmed Our Representative will Contact you Shortly.");
+	       String userMsg ="Hi New Trip Booking Arrived. \n"
+	       		+ "Selected Vehicle:"+car+"\n"
+	       				+ "Pick'Up Point :"+source+"\n"
+	       				+ "Destination :"+destination+"\n"
+	       				+ "Name :"+fullname+"\n"
+	       				+ "MobileNo :"+phonenumber+"\n"
+	       				+ "Email :"+email+"\n"
+	       				+ "Approx amount :"+grandtotal +"0 Rs";
+	    		   
+	       String sms2= new SmsApi().sendSms(/*"9886038268,7353723333"*/"9845214968,8951858472", userMsg);
+    ModelAndView mv = new ModelAndView();
+    mv.setViewName("popup");
+    return mv;
+  }
+
+  
 }

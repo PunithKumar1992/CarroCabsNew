@@ -67,7 +67,7 @@
 </div>
 <div class="preloader_wrapper" >
 	<div id="pre_loader">
-		<img src="images/pageloader.gif" alt="">
+		<img src="images/loader.gif" alt="">
 	</div>
 </div>
 
