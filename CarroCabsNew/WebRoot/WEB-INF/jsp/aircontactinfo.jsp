@@ -162,7 +162,7 @@
 </div>
 <div class="inner-holder">
 
-<textarea row="15" col="15" placeholder="airaddress" name="address" required style="resize:none;"></textarea>
+<textarea row="15" col="15" placeholder="airaddress" name="airaddress" required style="resize:none;"></textarea>
 
 <input type="submit" value="Submit">
 </div>

@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.appfone.carro.Daoimpl.AirportbookingDaoimpl;
 import com.appfone.carro.Daoimpl.TripbookingDaoimpl;
+import com.appfone.carro.util.Airportpdf;
 import com.appfone.carro.util.EmailUtility;
 import com.appfone.carro.util.SmsApi;
 import com.appfone.carro.util.TripPdf;
@@ -274,7 +275,6 @@ public class CarroController
 	  String airbasicamt=reqparam.get("airbasicamt");
 	  String airgst=reqparam.get("airgst");
 	  String airtotal=reqparam.get("airtotal");
-	  
 	  session.setAttribute("aircar", aircar);
 	  session.setAttribute("airbasicamt", airbasicamt);
 	  session.setAttribute("airgst", airgst);
@@ -305,10 +305,52 @@ public class CarroController
   }
   
   @RequestMapping(value="/airportFinal",method=RequestMethod.POST)
-  public ModelAndView airportFinalControll(HttpServletRequest request)
+  public ModelAndView airportFinalControll(HttpServletRequest request,HttpServletResponse response)
   {
+	  HttpSession session=request.getSession();
+	  String airfullname=session.getAttribute("airfullname").toString();
+	  String airphonenumber=session.getAttribute("airphone").toString();
+	  String aircar=session.getAttribute("aircar").toString();
+	  String airsource=session.getAttribute("airsource").toString();
+	  String airdestination=session.getAttribute("airdestination").toString();
+	  String airemail=session.getAttribute("airemail").toString();
+	  String airtotal=session.getAttribute("airtotal").toString();
+	  String relativeWebPath = "/airresource/pdf/"+airfullname +".pdf";
+		String absoluteDiskPath = context.getRealPath(relativeWebPath);
+		
+		String imgrelativePath = "/images/cp-logo.png";
+		String imgabsolutePath = context.getRealPath(imgrelativePath);
+		
+		String subject="Booking Confirmation Mail";
+		String msg ="Thank You for Using Carrocabs."+"\n" +" Your Booking is confirmed. Our Representative will Contatct You soon."+"\n"+"Find Your Booking Details in the below attacthment" +"\n" +"For More Queries Contact This No: 9342424268";
+		
+		
 	  AirportbookingDaoimpl airport=new AirportbookingDaoimpl();
 	  airport.saveTrip(request);
+	  Airportpdf airpdf = new Airportpdf();
+	  try {
+		airpdf.createPdf(request, response, absoluteDiskPath, imgabsolutePath);
+	} catch (IOException e) {
+
+		e.printStackTrace();
+	}
+	  new SmsApi().sendSms(airphonenumber, "Thank You For Choosing carrocabs. Your Booking is Confirmed Our Representative will Contact you Shortly.");
+      String userMsg ="Hi New Airport Trip Booking Arrived. \n"
+      		+ "Selected Vehicle:"+aircar+"\n"
+      				+ "Pick'Up Point :"+airsource+"\n"
+      				+ "Destination :"+airdestination+"\n"
+      				+ "Name :"+airfullname+"\n"
+      				+ "MobileNo :"+airphonenumber+"\n"
+      				+ "Email :"+airemail+"\n"
+      				+ "Approx amount :"+airtotal +"0 Rs";
+   		   
+      String sms2= new SmsApi().sendSms(/*"9886038268,7353723333"*/"9845214968,8951858472", userMsg);
+
+      EmailUtility email1 = new EmailUtility();
+		email1.sendMail(airemail, subject, msg, absoluteDiskPath, airfullname);
+		email1.sendMail("seema.yaladagi156@gmail.com", "Rider Booking Details", "Find the booking Details in the below Attachment", absoluteDiskPath, airfullname);
+		email1.delfile(absoluteDiskPath);
+		
     ModelAndView mv = new ModelAndView();
     mv.setViewName("popup");
     return mv;

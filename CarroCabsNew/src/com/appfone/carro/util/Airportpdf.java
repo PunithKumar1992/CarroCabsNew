@@ -22,43 +22,35 @@ import com.itextpdf.text.Paragraph;
  
 
 
-public class TripPdf  {
+public class Airportpdf  {
 
 	
 	
 String recipient=null;
 String subject=null;
 String content=null;
-String email=null;
-String fullname=null;
+String airemail=null;
+String airfullname=null;
 	
 	public void createPdf(HttpServletRequest request, HttpServletResponse response,String absoluteDiskPath,String imgabsolutePath) throws  IOException {
 	
 		PrintWriter out=response.getWriter();
 		HttpSession session =request.getSession();
-		String car=session.getAttribute("car").toString();
-		String price=session.getAttribute("price").toString();
-		String perday=session.getAttribute("perday").toString();
-		String driverbata=session.getAttribute("driverbata").toString();
-		String source=session.getAttribute("source").toString();
-		String destination=session.getAttribute("destination").toString();
-		String distance=session.getAttribute("idistance").toString();
-		distance=distance+"km";
-		String way=session.getAttribute("way").toString();
-		String date=session.getAttribute("date").toString();
-		String days=session.getAttribute("day").toString();
-		fullname=session.getAttribute("fullname").toString();
-		 email=session.getAttribute("email").toString();
-		String phonenumber=session.getAttribute("phone").toString();
-		String Address=session.getAttribute("address").toString();
-		String basicamt=session.getAttribute("basicamt").toString();
-		basicamt=basicamt+"0 Rs";
-		String finalbata=session.getAttribute("finaldriverbata").toString();
-		finalbata=finalbata+"0 Rs";
-		String gst=session.getAttribute("gst").toString();
-		gst=gst+"0 Rs";
-		String grandtotal=session.getAttribute("grandtotal").toString();
-		grandtotal=grandtotal+"0 Rs";
+		String aircar=session.getAttribute("aircar").toString();
+		String airsource=session.getAttribute("airsource").toString();
+		String airdestination=session.getAttribute("airdestination").toString();
+		String airway=session.getAttribute("airway").toString();
+		String airdate=session.getAttribute("airdate").toString();
+		airfullname=session.getAttribute("airfullname").toString();
+		 airemail=session.getAttribute("airemail").toString();
+		String airphonenumber=session.getAttribute("airphone").toString();
+		String airaddress=session.getAttribute("airaddress").toString();
+		String airbasicamt=session.getAttribute("airbasicamt").toString();
+		airbasicamt=airbasicamt+"0 Rs";
+		String airgst=session.getAttribute("airgst").toString();
+		airgst=airgst+"0 Rs";
+		String airtotal=session.getAttribute("airtotal").toString();
+		airtotal=airtotal+"0 Rs";
 		
 		
 		
@@ -105,41 +97,29 @@ try {
       table.addCell(new Paragraph("    "));
      
       table.addCell("Selected Vechile");
-      table.addCell(car);
-      table.addCell("Price");
-      table.addCell(price);
-      table.addCell("Per Day");
-      table.addCell(perday);
-      table.addCell("Driver Bata");
-      table.addCell(driverbata);
+      table.addCell(aircar);
       table.addCell("Source Point");
-      table.addCell(source);
+      table.addCell(airsource);
       table.addCell("Destination Point");
-      table.addCell(destination);
-      table.addCell("Distance");
-      table.addCell(distance);
+      table.addCell(airdestination);
       table.addCell("Trip Way");
-      table.addCell(way);
+      table.addCell(airway);
       table.addCell("Travelling Date");
-      table.addCell(date);
-      table.addCell("Number of Days");
-      table.addCell(days);
+      table.addCell(airdate);
       table.addCell("Name");
-      table.addCell(fullname);
+      table.addCell(airfullname);
       table.addCell("Email");
-      table.addCell(email);
+      table.addCell(airemail);
       table.addCell("Phone Number");
-      table.addCell(phonenumber);
+      table.addCell(airphonenumber);
       table.addCell("Address");
-      table.addCell(Address);
+      table.addCell(airaddress);
       table.addCell("Basic Amount");
-      table.addCell(basicamt);
-      table.addCell("Driver Bata");
-      table.addCell(finalbata);
+      table.addCell(airbasicamt);
       table.addCell("Gst");
-      table.addCell(gst);
+      table.addCell(airgst);
       table.addCell("Total Approx.amount");
-      table.addCell(grandtotal);
+      table.addCell(airtotal);
       table.setSpacingBefore(30.0f);       
       table.setSpacingAfter(30.0f);        								          
 

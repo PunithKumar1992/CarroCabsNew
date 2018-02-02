@@ -65,6 +65,10 @@
    <property name="vehicle"></property>
    <property name="source"></property>
    <property name="destination"></property>
+   <property name="name"></property>
+   <property name="phone"></property>
+   <property name="email"></property>
+   <property name="address"></property>
    <property name="date"></property>
    <property name="basicamt"></property>
    <property name="gst"></property>

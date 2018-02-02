@@ -25,6 +25,10 @@ public class AirportbookingDaoimpl implements AirportbookingDao{
 		airbook.setSource(session1.getAttribute("airsource").toString());
 		airbook.setTotal(session1.getAttribute("airtotal").toString());
 		airbook.setVehicle(session1.getAttribute("aircar").toString());
+		airbook.setName(session1.getAttribute("airfullname").toString());
+		airbook.setPhone(session1.getAttribute("airphone").toString());
+		airbook.setEmail(session1.getAttribute("airemail").toString());
+		airbook.setAddress(session1.getAttribute("airaddress").toString());
 		
 		
 		Configuration cfg = new Configuration();
