@@ -165,10 +165,10 @@ out.println("<h4  style='color:black;margin-left:8%;font-family:New Century Scho
 out.println("<figure class='cp-gallery-box'>");
 out.println("<img src='"+imgpath+"' alt=''>");
 out.println("<figcaption class='cp-caption'>");
-out.println("<form action='' method='post'");
+out.println("<form action='package_info1.html'>");
 out.println("<h4  style='color:white;'>"+package_namelist[i]+"</h4>");
-out.println("<input type='submit' value='Book Now'  class='cp-btn-style1'/>");
-out.println("<input type='hidden' name='packageselected' value='"+package_namelist[i]+"'");
+out.println("<input type='hidden' name='packselected' value='"+package_namelist[i]+"'>");
+out.println("<input type='submit' value='Book Now'  class='cp-btn-style1'>");
 out.println("</form>");
 out.println("</figcaption>");
 out.println("</figure>");

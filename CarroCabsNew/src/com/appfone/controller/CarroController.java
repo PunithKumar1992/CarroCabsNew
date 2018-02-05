@@ -8,9 +8,11 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.ws.rs.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -359,9 +361,11 @@ public class CarroController
   @RequestMapping(value="/package_info1")
   public ModelAndView package_info1Controll(@RequestParam Map<String, String>reqparam,HttpServletRequest request)
   {
+
+	  String packselected=reqparam.get("packselected");
 	  HttpSession session = request.getSession();
-	  String packselected=reqparam.get("packageselected");
-	  session.setAttribute("packageselected", packselected);
+	  session.setAttribute("packselected", packselected);
+	 
     ModelAndView mv = new ModelAndView();
     mv.setViewName("package_info1");
     return mv;

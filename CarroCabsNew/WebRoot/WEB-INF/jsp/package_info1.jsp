@@ -69,8 +69,8 @@
 	
 	
 	%>
-	<%packselected=session.getAttribute("packageselected").toString(); %>
-	<header class="cp_header">
+	<%packselected=session.getAttribute("packselected").toString(); %>
+	 <header class="cp_header">
 	<div id="cp-slide-menu" class="cp_side-navigation">
 		<ul class="navbar-nav">
 			<li id="close"><a href="#"><i class="fa fa-close"></i></a></li>
