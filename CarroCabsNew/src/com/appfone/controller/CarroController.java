@@ -355,4 +355,23 @@ public class CarroController
     mv.setViewName("popup");
     return mv;
   }
+  
+  @RequestMapping(value="/package_info1")
+  public ModelAndView package_info1Controll(@RequestParam Map<String, String>reqparam,HttpServletRequest request)
+  {
+	  HttpSession session = request.getSession();
+	  String packselected=reqparam.get("packageselected");
+	  session.setAttribute("packageselected", packselected);
+    ModelAndView mv = new ModelAndView();
+    mv.setViewName("package_info1");
+    return mv;
+  }
+  
+  @RequestMapping(value="/PackCarList")
+  public ModelAndView PackCarListControll()
+  {
+    ModelAndView mv = new ModelAndView();
+    mv.setViewName("PackCarList");
+    return mv;
+  }
 }

@@ -76,5 +76,13 @@
    
   </class>  
   
+  <class name="com.appfone.carro.pojo.Package_list" table="package_list">  
+    <id name="pack_id">  
+     <generator class="increment"></generator>  
+    </id>  
+            
+   <property name="pack_name"></property>         
+   <property name="pack_image"></property>         
+  </class>  
   
  </hibernate-mapping>  

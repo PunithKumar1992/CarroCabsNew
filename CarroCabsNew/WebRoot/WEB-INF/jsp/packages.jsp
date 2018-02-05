@@ -1,3 +1,4 @@
+<%@page import="com.appfone.carro.Daoimpl.Package_listDaoimpl"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -37,7 +38,14 @@
 </script>   
 </head>
 <body>
+<%!
+int count=0;
+String package_namelist[];
+String pack_images[];
+String img;
+String imgpath;
 
+ %>
 <header class="cp_header">
 <div id="cp-slide-menu" class="cp_side-navigation">
 <ul class="navbar-nav">
@@ -57,7 +65,6 @@
 </li>	
 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages <i class="fa fa-angle-down"></i></a>
 <ul class="dropdown-menu" role="menu">
-
 <li><a href="testimonial.html">Testimonial</a></li>
 </ul>
 </li>
@@ -66,14 +73,11 @@
 </li>
 </ul>
 </div>
-
 <div class="preloader_wrapper" >
 	<div id="pre_loader">
 		<img src="images/loader.gif" alt="">
 	</div>
 </div>
-
-
 <div class="cp-navigation-row">
 <div class="container">
 <div class="row">
@@ -82,13 +86,11 @@
 </div>
 <div class="row" style="background-color:white;">
 <div class="col-md-3 col-sm-12 col-xs-6" >
-
 <strong class="cp-logo">
 <a href="index.jsp"><img src="images/cp-logo.png" alt=""></a>
 </strong>
 </div>
 <div class="col-md-9 col-sm-12 col-xs-6">
-
 <div class="cp-nav-holder">
 <ul class="navbar-nav">
 <li><a href="index.jsp">Home</a></li>
@@ -124,7 +126,6 @@
 </header>
 <div class="cp_inner-banner">
 <img src="images/banner/inner-banner-img-02.png" alt="">
-
 <div class="cp-inner-banner-holder">
 <div class="container">
 <ul class="breadcrumb">
@@ -137,118 +138,49 @@
 <img src="images/animate-bus2.png" alt="">
 </div>
 </div>
-
-
 <div id="cp-main-content">
-
 <section class="cp-gallery-section pd-tb80">
 <div class="container">
 <div class="cp-heading-style1">
 <h2 style="colo:white">Choose  <span style="colo:white"> Packages</span></h2>
 </div>
-
 <div class="cp-tabs-holder">
-
 <div class="tab-content">
 <div role="tabpanel" class="tab-pane fade in active">
 <div class="row">
-<div class="col-md-4 col-sm-6">
+<% 
+Package_listDaoimpl packlist=new Package_listDaoimpl();
+count=packlist.getcountlist();
+package_namelist=new String[count];
+package_namelist=packlist.getPackagenameslist();
+pack_images=new String[count];
+pack_images=packlist.getpack_imagelist();
+for(int i=0;i<count;i++)
+{
+img=pack_images[i];
+imgpath="images/packimages/"+img;
 
-<figure class="cp-gallery-box">
-<img src="images/Coorg.png" alt="">
-<figcaption class="cp-caption">
-<h4  style="color:white;">Mysore Coorg 3Days 2Night Package</h4>
-<a href="package-info1.html" class="cp-btn-style1">Book Now</a>
-</figcaption>
-</figure>
-</div>
-<div class="col-md-4 col-sm-6">
-
-<figure class="cp-gallery-box">
-<img src="images/ooty.png" alt="">
-<figcaption class="cp-caption">
-<h4  style="color:white;">Mysore Ooty 3 Night 4Days Package</h4>
-<a href="package-info1.html" class="cp-btn-style1">Book Now</a>
-</figcaption>
-</figure>
-</div>
-<div class="col-md-4 col-sm-6">
-
-<figure class="cp-gallery-box">
-<img src="images/Mysore.png" alt="">
-<figcaption class="cp-caption">
-<h4  style="color:white;">Mysore Ooty and Kodaikanal 5Night 6Days Package</h4>
-<a href="package-info1.html" class="cp-btn-style1">Book Now</a>
-</figcaption>
-</figure>
-</div>
-<div class="col-md-4 col-sm-6">
-
-<figure class="cp-gallery-box">
-<img src="images/Waynad.png" alt="">
-<figcaption class="cp-caption">
-<h4  style="color:white;">Mysore Waynad 3Night 4Days Package</h4>
-<a href="package-info1.html" class="cp-btn-style1">Book Now</a>
-</figcaption>
- </figure>
-</div>
-<div class="col-md-4 col-sm-6">
-
-<figure class="cp-gallery-box">
-<img src="images/Pondycherry.png" alt="">
-<figcaption class="cp-caption">
-<h4  style="color:white;">Pondycherry 1Night 2Days Package</h4>
-<a href="package-info1.html" class="cp-btn-style1">Book Now</a>
-</figcaption>
-</figure>
-</div>
-<div class="col-md-4 col-sm-6">
-
-<figure class="cp-gallery-box">
-<img src="images/Munnarand  Allephy.png" alt="">
-<figcaption class="cp-caption">
-<h4  style="color:white;">Munnar and Allephy 4Night 5Days Package </h4>
-<a href="package-info1.html" class="cp-btn-style1">Book Now</a>
-</figcaption>
-</figure>
-</div>
-<div class="col-md-4 col-sm-6">
-
-<figure class="cp-gallery-box">
-<img src="images/Goa.png" alt="">
-<figcaption class="cp-caption">
-<h4  style="color:white;">Goa 2Night 3Days Package</h4>
-<a href="package-info1.html" class="cp-btn-style1">Book Now</a>
-</figcaption>
-</figure>
-</div>
-<div class="col-md-4 col-sm-6">
-
-<figure class="cp-gallery-box">
-<img src="images/Shirdi.png" alt="">
-<figcaption class="cp-caption">
-<h4  style="color:white;">Shirdi 2Night 3Days Package </h4>
-<a href="package-info1.html" class="cp-btn-style1">Book Now</a>
-</figcaption>
-</figure>
-</div>
-<div class="col-md-4 col-sm-6">
-
-<figure class="cp-gallery-box">
-<img src="images/Nandhi hills.png" alt="">
-<figcaption class="cp-caption">
-<h4  style="color:white;">One day Nandhi hills Package</h4>
-<a href="package-info1.html" class="cp-btn-style1">Book Now</a>
-</figcaption>
-</figure>
-</div>
+out.println("<div class='col-md-4 col-sm-6'>");
+out.println("<h4  style='color:black;margin-left:8%;font-family:New Century Schoolbook, serif;'>"+package_namelist[i]+"</h4>");
+out.println("<figure class='cp-gallery-box'>");
+out.println("<img src='"+imgpath+"' alt=''>");
+out.println("<figcaption class='cp-caption'>");
+out.println("<form action='' method='post'");
+out.println("<h4  style='color:white;'>"+package_namelist[i]+"</h4>");
+out.println("<input type='submit' value='Book Now'  class='cp-btn-style1'/>");
+out.println("<input type='hidden' name='packageselected' value='"+package_namelist[i]+"'");
+out.println("</form>");
+out.println("</figcaption>");
+out.println("</figure>");
+out.println("</div>");
+}
+%>
 </div>
 </div>
 </div>
 </div>
 </section>
 <footer class="cp_footer">
-
 <section class="cp-ft-top-section pd-t80">
 <div class="container">
 <div class="row">
@@ -269,12 +201,10 @@
 </div>
 </div>
 </section>
-
 <section class="cp-ft-bottom-section">
 <div class="container">
 <div class="row">
 <div class="col-md-5 col-sm-12">
-
 <div class="cp-ft-form-box">
 <p style="color: white;margin-bottom: 2%">Contact Us</p>
 <p style="color: white;margin-bottom: 2%"><i class="fa fa-phone-square" aria-hidden="true"></i>+91 73537 23333</p>
@@ -282,7 +212,6 @@
 </div>
 </div>
 <div class="col-md-7 col-sm-12">
-
 <nav class="cp-footer-nav">
 <ul>
 <li><a href="index.jsp">Home</a></li>
@@ -300,19 +229,12 @@
 </section>
 </footer>
 </div>
-
 <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
-
 <script src="js/html5shiv.js" type="text/javascript"></script>
-
 <script type="text/javascript" src="js/migrate.js"></script>
-
 <script type="text/javascript" src="js/owl.carousel.min.js"></script>
-
 <script type="text/javascript" src="js/custom-script.js"></script>
-
 <script language="javascript" type="text/javascript">
      $(window).load(function() {
      /* $('.preloader_wrapper').hide();
@@ -320,7 +242,5 @@
   $('.preloader_wrapper').delay(600).fadeOut("slow"); 
    });
 </script>
-
-
 </body>
 </html>

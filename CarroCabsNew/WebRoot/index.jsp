@@ -1041,7 +1041,8 @@ $(document).ready(function(){
     var d=$("#destination").val();
    
     if(s.length && d.length >0)
-	 get_rout()
+	 get_rout();
+	 get_rout1();
 
   
   });
@@ -1171,7 +1172,7 @@ $(document).ready(function(){
      $(window).load(function() {
      /* $('.preloader_wrapper').hide();
   */
-  $('.preloader_wrapper').delay(600).fadeOut("slow"); 
+  $('.preloader_wrapper').delay(1500).fadeOut("slow"); 
    });
 </script>
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
@@ -1215,66 +1216,21 @@ $("#airdestination").val("");
 
 <!-- air port autocomplete -->
 <script type="text/javascript">
-        var source, destination;
-	        var darection = new google.maps.DirectionsRenderer;
-	        var directionsService = new google.maps.DirectionsService;
-	        google.maps.event.addDomListener(window, 'load', function () {
-	            new google.maps.places.SearchBox(document.getElementById('airsource'));
-	            new google.maps.places.SearchBox(document.getElementById('airdestination'));
-	            
-	        });
 
-	        function get_rout() {
-	        	
-	        	var source1=document.getElementById('airsource').value;
-	        	var destination1=document.getElementById('airdestination').value;
-	            var mapOptions = {
-	                mapTypeControl: false,
-	                center: {lat: -33.8688, lng: 151.2195},
-	                zoom: 13
-	            };
-	           source = document.getElementById("airsource").value;
-	           
-	            destination = document.getElementById("airdestination").value;
-	            
-	            
+$(document).ready(function(){
 
-	            var request = {
-	                origin: source,
-	                destination: destination,
-	                travelMode: google.maps.TravelMode.DRIVING
-	            };
-	            directionsService.route(request, function (response, status) {
-	                if (status == google.maps.DirectionsStatus.OK) {
-	                    darection.setDirections(response);
-	                }
-	            });
+$("#airway").change(function(){
+
+autocomplete();
+});
+
+});
+
+function autocomplete()
+{
 
 
-	            
-	            var service = new google.maps.DistanceMatrixService();
-	            service.getDistanceMatrix({
-	                origins: [source],
-	                destinations: [destination],
-	                travelMode: google.maps.TravelMode.DRIVING,
-	                unitSystem: google.maps.UnitSystem.METRIC,
-	                avoidHighways: false,
-	                avoidTolls: false
-	            }, function (response, status) {
-	                if (status == google.maps.DistanceMatrixStatus.OK && response.rows[0].elements[0].status != "ZERO_RESULTS") {
-	                    var distance = response.rows[0].elements[0].distance.text;
-	                    var duration = response.rows[0].elements[0].duration.text;
-	                    
-	                    distancefinel = distance.split(" ");
-	                    $('.distance').val(distancefinel[0]);
-	                    
-	                } else {
-	                    alert("Unable to find the distance via road.");
-	                }
-	            });
-	        }
-	        
-	        var input = document.getElementById('airsource');
+  var input = document.getElementById('airsource');
 	var options = {
 	   componentRestrictions: {
 	       country: 'in'
@@ -1321,7 +1277,10 @@ $("#airdestination").val("");
 	}
 
 	});    
-	
+
+
+
+}
 
 
 </script>
