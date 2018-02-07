@@ -1,6 +1,9 @@
+<%@page import="com.appfone.carro.Daoimpl.Package_sightseenDaoimpl"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
 <%@page import="com.appfone.carro.Daoimpl.Package_listDaoimpl"%>
+<%@page import="com.appfone.carro.Daoimpl.Package_sightseenDaoimpl"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -65,10 +68,15 @@
 	String pack_images[];
 	String img;
 	String imgpath;
-	String packselected;%>
+	String packselected;
+	String pack_sightseen[];
+	String pack_subsightseen[];%>
+
+
 	<%
 		packselected = session.getAttribute("packselected").toString();
 	%>
+
 	<header class="cp_header">
 	<div id="cp-slide-menu" class="cp_side-navigation">
 		<ul class="navbar-nav">
@@ -267,18 +275,22 @@ input[type=submit]:hover {
 </style>
 											<h3>Sight Seen</h3>
 											<ul>
-												<li><b style="font-size: 30px;">Mysore</b></li>
-												<li><br></li>
-												<li style="text-align: justify;">Tippu summer palace,
-													Gumbaz,Ranganathatemple, Chamundi hills, Nandi statue,Zoo,
-													Mysore palace, Jaganmohan palace, Church, Old st, marry
-													chruch, Brundavan garden.</li>
-												<li><br></li>
-												<li><b style="font-size: 30px;">Coorg</b></li>
-												<li><br></li>
-												<li style="text-align: justify;">Golden temple,
-													Nisargadhama, Dubare falls, Raja seat, Thalakaveri, Habbi
-													falls, Fort.</li>
+												<%
+												Package_sightseenDaoimpl p_sight=new Package_sightseenDaoimpl();
+												pack_sightseen=p_sight.getpackage_sightseen(packselected);
+												pack_subsightseen=p_sight.getpackage_subsightseen(packselected);
+													for (int i = 0; i < pack_sightseen.length; i++) 
+													{
+													
+														out.println("<li><b style='font-size: 30px;''>"
+																+pack_sightseen[i] + "</b></li>");
+														out.println("<li><br></li>");
+														out.println("<li style='text-align: justify;'>"
+																+ pack_subsightseen[i] + "</li>");
+														out.println("<li><br></li>");
+													}
+												%>
+
 												<li><br></li>
 												<li><br></li>
 											</ul>
@@ -338,6 +350,7 @@ div.gallery:hover {
 								package_namelist = packlist.getPackagenameslist();
 								pack_images = new String[count];
 								pack_images = packlist.getpack_imagelist();
+
 								for (int i = 0; i < count; i++) {
 									img = pack_images[i];
 									imgpath = "images/packimages/" + img;
@@ -345,8 +358,10 @@ div.gallery:hover {
 									out.println("<figure class='cp-gallery-box' style='height: 250px;border-radius:12px'> <img src='"
 											+ imgpath + "' alt=''> <figcaption class='cp-caption'>");
 									out.println("<form action='package_info1.html'>");
-									out.println("<h4 style='color:white;''>" + package_namelist[i] + "</h4>");
-									out.println("<input type='hidden' name='packselected' value='" + package_namelist[i] + "'>");
+									out.println("<h4 style='color:white;''>" + package_namelist[i]
+											+ "</h4>");
+									out.println("<input type='hidden' name='packselected' value='"
+											+ package_namelist[i] + "'>");
 									out.println("<input type='submit' value='Book Now'   class='cp-btn-style1'>");
 									out.println("</form>");
 									out.println("</figcaption> </figure>");
