@@ -14,6 +14,7 @@ import org.hibernate.criterion.Projections;
 import com.appfone.carro.Dao.Airvehicle_listDao;
 import com.appfone.carro.pojo.Airvehicle_list;
 import com.appfone.carro.pojo.Vehicle_list;
+import com.appfone.carro.util.HibernateUtil;
 
 public class Airvehicle_listDaoimpl implements Airvehicle_listDao {
 
@@ -27,9 +28,7 @@ public class Airvehicle_listDaoimpl implements Airvehicle_listDao {
 	@Override
 	public int getcountlist() {
 	
-		Configuration cfg = new Configuration();
-	    cfg.configure("hibernate.cfg.xml");
-	    SessionFactory factory = cfg.buildSessionFactory();
+		SessionFactory factory=HibernateUtil.getSessionFactory();
 	    Session session = factory.openSession();
 	    Transaction t = session.beginTransaction();
 	    Query query = session.createQuery("select count(*) from Airvehicle_list");
@@ -44,9 +43,7 @@ public class Airvehicle_listDaoimpl implements Airvehicle_listDao {
 	
 	@Override
 	public String[] getVehiclenameslist() {
-		Configuration cfg = new Configuration();
-	    cfg.configure("hibernate.cfg.xml");
-	    SessionFactory factory = cfg.buildSessionFactory();
+		SessionFactory factory=HibernateUtil.getSessionFactory();
 	    Session session = factory.openSession();
 	    Transaction t = session.beginTransaction();
 	    Vehicle_list v_list = new Vehicle_list();
@@ -69,9 +66,7 @@ public class Airvehicle_listDaoimpl implements Airvehicle_listDao {
 
 	@Override
 	public String[] getv_imagelist() {
-		Configuration cfg = new Configuration();
-	    cfg.configure("hibernate.cfg.xml");
-	    SessionFactory factory = cfg.buildSessionFactory();
+		SessionFactory factory=HibernateUtil.getSessionFactory();
 	    Session session = factory.openSession();
 	    Transaction t = session.beginTransaction();
 	    Vehicle_list v_list = new Vehicle_list();
@@ -97,9 +92,7 @@ public class Airvehicle_listDaoimpl implements Airvehicle_listDao {
 	@Override
 	public String[] getBasicamtlist() {
 		
-		Configuration cfg = new Configuration();
-	    cfg.configure("hibernate.cfg.xml");
-	    SessionFactory factory = cfg.buildSessionFactory();
+		SessionFactory factory=HibernateUtil.getSessionFactory();
 	    Session session = factory.openSession();
 	    Transaction t = session.beginTransaction();
 	    Vehicle_list v_list = new Vehicle_list();
@@ -125,9 +118,7 @@ public class Airvehicle_listDaoimpl implements Airvehicle_listDao {
 	@Override
 	public String[] getgstlist() {
 		
-		Configuration cfg = new Configuration();
-	    cfg.configure("hibernate.cfg.xml");
-	    SessionFactory factory = cfg.buildSessionFactory();
+		SessionFactory factory=HibernateUtil.getSessionFactory();
 	    Session session = factory.openSession();
 	    Transaction t = session.beginTransaction();
 	    Vehicle_list v_list = new Vehicle_list();
@@ -152,9 +143,7 @@ public class Airvehicle_listDaoimpl implements Airvehicle_listDao {
 
 	@Override
 	public String[] gettotallist() {
-		Configuration cfg = new Configuration();
-	    cfg.configure("hibernate.cfg.xml");
-	    SessionFactory factory = cfg.buildSessionFactory();
+		SessionFactory factory=HibernateUtil.getSessionFactory();
 	    Session session = factory.openSession();
 	    Transaction t = session.beginTransaction();
 	    Vehicle_list v_list = new Vehicle_list();

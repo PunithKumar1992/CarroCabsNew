@@ -10,6 +10,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.appfone.carro.Dao.TripbookingDao;
 import com.appfone.carro.pojo.Tripbooking;
+import com.appfone.carro.util.HibernateUtil;
 
 public class TripbookingDaoimpl implements TripbookingDao {
 	
@@ -37,9 +38,7 @@ public class TripbookingDaoimpl implements TripbookingDao {
 		tb.setFinal_bata(session1.getAttribute("finaldriverbata").toString());
 		tb.setTotal_approx(session1.getAttribute("grandtotal").toString());
 		
-		Configuration cfg = new Configuration();
-	    cfg.configure("hibernate.cfg.xml");
-	    SessionFactory factory = cfg.buildSessionFactory();
+		SessionFactory factory=HibernateUtil.getSessionFactory();
 	    Session session = factory.openSession();
 	    Transaction t = session.beginTransaction();
 	    session.persist(tb);

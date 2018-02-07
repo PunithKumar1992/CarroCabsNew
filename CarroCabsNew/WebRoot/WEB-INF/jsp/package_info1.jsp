@@ -65,12 +65,11 @@
 	String pack_images[];
 	String img;
 	String imgpath;
-	String packselected;
-	
-	
+	String packselected;%>
+	<%
+		packselected = session.getAttribute("packselected").toString();
 	%>
-	<%packselected=session.getAttribute("packselected").toString(); %>
-	 <header class="cp_header">
+	<header class="cp_header">
 	<div id="cp-slide-menu" class="cp_side-navigation">
 		<ul class="navbar-nav">
 			<li id="close"><a href="#"><i class="fa fa-close"></i></a></li>
@@ -183,7 +182,7 @@
 		<div class="container">
 			<div class="cp-heading-style2">
 				<h3 class="tittle1"
-					style="font-size:35px;color: black;text-decoration:justify;"><%=packselected %></h3>
+					style="font-size:35px;color: black;text-decoration:justify;"><%=packselected%></h3>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
@@ -309,7 +308,7 @@ div.gallery:hover {
 </style>
 						<div class="gallery">
 							<a target="_blank" href="images/coorg.png"> <img
-								src="images/coorg.png" alt="carrocabs">
+								src="images/Mysore.jpg" alt="carrocabs">
 							</a>
 						</div>
 					</div>
@@ -343,9 +342,13 @@ div.gallery:hover {
 									img = pack_images[i];
 									imgpath = "images/packimages/" + img;
 									out.println("<div>");
-									out.println("<figure class='cp-gallery-box' style='height: 250px;border-radius:12px'> <img src='"+imgpath+"' alt=''> <figcaption class='cp-caption'>");
-									out.println("<h4 style='color:white;''>"+package_namelist[i]+"</h4>");
-									out.println("<a href='package_info1.html' class='cp-btn-style1'>Book Now</a>");
+									out.println("<figure class='cp-gallery-box' style='height: 250px;border-radius:12px'> <img src='"
+											+ imgpath + "' alt=''> <figcaption class='cp-caption'>");
+									out.println("<form action='package_info1.html'>");
+									out.println("<h4 style='color:white;''>" + package_namelist[i] + "</h4>");
+									out.println("<input type='hidden' name='packselected' value='" + package_namelist[i] + "'>");
+									out.println("<input type='submit' value='Book Now'   class='cp-btn-style1'>");
+									out.println("</form>");
 									out.println("</figcaption> </figure>");
 									out.println("</div>");
 								}

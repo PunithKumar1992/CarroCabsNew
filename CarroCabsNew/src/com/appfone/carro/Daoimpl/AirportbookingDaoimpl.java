@@ -10,6 +10,7 @@ import org.hibernate.cfg.Configuration;
 
 import com.appfone.carro.Dao.AirportbookingDao;
 import com.appfone.carro.pojo.Airportbooking;
+import com.appfone.carro.util.HibernateUtil;
 
 public class AirportbookingDaoimpl implements AirportbookingDao{
 
@@ -31,9 +32,7 @@ public class AirportbookingDaoimpl implements AirportbookingDao{
 		airbook.setAddress(session1.getAttribute("airaddress").toString());
 		
 		
-		Configuration cfg = new Configuration();
-	    cfg.configure("hibernate.cfg.xml");
-	    SessionFactory factory = cfg.buildSessionFactory();
+		SessionFactory factory=HibernateUtil.getSessionFactory();
 	    Session session = factory.openSession();
 	    Transaction t = session.beginTransaction();
 	    session.persist(airbook);
