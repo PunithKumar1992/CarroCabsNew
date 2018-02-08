@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.ws.rs.PathParam;
 
+import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,9 +20,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.appfone.carro.Daoimpl.AirportbookingDaoimpl;
+import com.appfone.carro.Daoimpl.PackagebookingDaoimpl;
 import com.appfone.carro.Daoimpl.TripbookingDaoimpl;
 import com.appfone.carro.util.Airportpdf;
 import com.appfone.carro.util.EmailUtility;
+import com.appfone.carro.util.Packagepdf;
 import com.appfone.carro.util.SmsApi;
 import com.appfone.carro.util.TripPdf;
 
@@ -200,6 +203,9 @@ public class CarroController
     return mv;
   }
   
+  
+  
+  
   @RequestMapping({"/Final"})
   public ModelAndView FinalControll(HttpServletRequest  request,HttpServletResponse response)
   {
@@ -363,10 +369,12 @@ public class CarroController
   {
 
 	  String packselected=reqparam.get("packselected");
+	  String packselectedimg=reqparam.get("packselectedimg");
 	  HttpSession session = request.getSession();
 	  session.setAttribute("packselected", packselected);
-	 
-    ModelAndView mv = new ModelAndView();
+	  session.setAttribute("packselectedimg", packselectedimg);
+	  
+	      ModelAndView mv = new ModelAndView();
     mv.setViewName("package_info1");
     return mv;
   }
@@ -378,4 +386,112 @@ public class CarroController
     mv.setViewName("PackCarList");
     return mv;
   }
+  
+  @RequestMapping({"/packagecontact_info"})
+  public ModelAndView packagecontact_infoControll(@RequestParam Map<String, String> reqparam,HttpServletRequest request)
+  {
+	  HttpSession session = request.getSession();
+	  String package_vehiclename=reqparam.get("package_vehiclename");
+	  String package_vehicleprice=reqparam.get("package_vehicleprice");
+	  String package_vehicleimage=reqparam.get("package_vehicleimage");
+	  
+	  System.out.println("package car name"  +package_vehiclename);
+	 session.setAttribute("package_vehiclename", package_vehiclename);
+	 session.setAttribute("package_vehicleprice", package_vehicleprice);
+	 session.setAttribute("package_vehicleimage", package_vehicleimage);
+	 
+    ModelAndView mv = new ModelAndView();
+    mv.setViewName("packagecontact_info");
+    return mv;
+  }
+  
+  @RequestMapping({"/package_info2"})
+  public ModelAndView package_info2Controll()
+  {
+	 
+    ModelAndView mv = new ModelAndView();
+    mv.setViewName("packages");
+    return mv;
+  }
+  
+  @RequestMapping({"/packagebooking"})
+  public ModelAndView packageFinalControll(@RequestParam Map<String, String>reqparam,HttpServletRequest request)
+  {
+	  HttpSession session=request.getSession();
+	 String packagefullname=reqparam.get("packagefullname");
+	 String packagephone=reqparam.get("packagephone");
+	 String packageemail=reqparam.get("packageemail");
+	 String packageaddress=reqparam.get("packageaddress");
+	 String packagedate=reqparam.get("packagedate");
+	 String packagesource=reqparam.get("packagesource");
+	 session.setAttribute("packagefullname", packagefullname);
+	 session.setAttribute("packagephone", packagephone);
+	 session.setAttribute("packageemail", packageemail);
+	 session.setAttribute("packageaddress", packageaddress);
+	 session.setAttribute("packagedate", packagedate);
+	 session.setAttribute("packagesource", packagesource);
+	 
+	 
+	 
+	 
+    ModelAndView mv = new ModelAndView();
+    mv.setViewName("packagebooking");
+    return mv;
+  }
+  
+  @RequestMapping(value="/packageFinal",method=RequestMethod.POST)
+  public ModelAndView packageFinalControll(HttpServletRequest request,HttpServletResponse response)
+  {
+	  HttpSession session=request.getSession();
+	  String packagefullname=session.getAttribute("packagefullname").toString();
+	  String packagephone=session.getAttribute("packagephone").toString();
+	  String package_vehiclename=session.getAttribute("package_vehiclename").toString();
+	  String packageemail=session.getAttribute("packageemail").toString();
+	  String packagetotal=session.getAttribute("packagetotal").toString();
+	  String packselected=session.getAttribute("packselected").toString();
+	  String packagedate=session.getAttribute("packagedate").toString();
+	  String packagepickup_point=session.getAttribute("packagesource").toString();
+	  
+	  String relativeWebPath = "/packageresource/pdf/"+packagefullname +".pdf";
+		String absoluteDiskPath = context.getRealPath(relativeWebPath);
+		
+		String imgrelativePath = "/images/cp-logo.png";
+		String imgabsolutePath = context.getRealPath(imgrelativePath);
+		
+		String subject="Booking Confirmation Mail";
+		String msg ="Thank You for Using Carrocabs."+"\n" +" Your Booking is confirmed. Our Representative will Contatct You soon."+"\n"+"Find Your Booking Details in the below attacthment" +"\n" +"For More Queries Contact This No: 9342424268";
+		
+		PackagebookingDaoimpl packbooking= new PackagebookingDaoimpl();
+		packbooking.savePackagebooking(request);
+		 Packagepdf packpdf = new Packagepdf();
+		  try {
+			packpdf.createPdf(request, response, absoluteDiskPath, imgabsolutePath);
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+	 
+	  new SmsApi().sendSms(packagephone, "Thank You For Choosing carrocabs. Your Booking is Confirmed Our Representative will Contact you Shortly.");
+      String userMsg ="Hi New"+" "+packselected +"Package Trip Booking Arrived. \n"
+      		+ "Selected Vehicle:"+package_vehiclename+"\n"
+      				+ "Name :"+packagefullname+"\n"
+      				+ "MobileNo :"+packagephone+"\n"
+      				+ "Date :"+packagedate+"\n"
+      				+ "Pickup_point :"+packagepickup_point+"\n"
+      				+ "Email :"+packageemail+"\n"
+      				+ "Approx amount :"+packagetotal +"0 Rs";
+   		   
+      String sms2= new SmsApi().sendSms(/*"9886038268,7353723333"*/"9845214968,8951858472", userMsg);
+
+      EmailUtility email1 = new EmailUtility();
+		email1.sendMail(packageemail, subject, msg, absoluteDiskPath, packagefullname);
+		email1.sendMail("seema.yaladagi156@gmail.com", "Rider Booking Details", "Find the booking Details in the below Attachment", absoluteDiskPath, packagefullname);
+		email1.delfile(absoluteDiskPath);
+		
+    ModelAndView mv = new ModelAndView();
+    mv.setViewName("popup");
+    return mv;
+  }
+  
+  
 }

@@ -1,7 +1,7 @@
-<%@page import="com.appfone.carro.Daoimpl.Package_listDaoimpl"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
 <meta charset="utf-8">
@@ -37,15 +37,16 @@
   <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyBS18tx1fKZDmGkHjsyQoXm2cYbH5xI88M&sensor=false&libraries=places" type="text/javascript">
 </script>   
 </head>
-<body>
-<%!
-int count=0;
-String package_namelist[];
-String pack_images[];
-String img;
-String imgpath;
+<body onload="get_rout()">
+<%! 
 
- %>
+String package_vehiclename;
+String packselected;
+String packageprice;
+String packagegst;
+String packagetotal;
+
+  %>
 <header class="cp_header">
 <div id="cp-slide-menu" class="cp_side-navigation">
 <ul class="navbar-nav">
@@ -62,9 +63,12 @@ String imgpath;
 </li>
 <li><a href=packages.html">Packages</a></li>
 <li><a href="faq.html">FAQs</a>
-</li>	
+</li>
+<!-- <li><a href="booking.html">View a booking</a> -->
 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages <i class="fa fa-angle-down"></i></a>
 <ul class="dropdown-menu" role="menu">
+<li><a href="gallery.html">Gallery</a>
+</li>
 <li><a href="testimonial.html">Testimonial</a></li>
 </ul>
 </li>
@@ -73,11 +77,7 @@ String imgpath;
 </li>
 </ul>
 </div>
-<div class="preloader_wrapper" >
-	<div id="pre_loader">
-		<img src="images/loader.gif" alt="">
-	</div>
-</div>
+
 <div class="cp-navigation-row">
 <div class="container">
 <div class="row">
@@ -86,11 +86,13 @@ String imgpath;
 </div>
 <div class="row" style="background-color:white;">
 <div class="col-md-3 col-sm-12 col-xs-6" >
+
 <strong class="cp-logo">
 <a href="index.jsp"><img src="images/cp-logo.png" alt=""></a>
 </strong>
 </div>
 <div class="col-md-9 col-sm-12 col-xs-6">
+
 <div class="cp-nav-holder">
 <ul class="navbar-nav">
 <li><a href="index.jsp">Home</a></li>
@@ -108,6 +110,8 @@ String imgpath;
 </li>
 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages <i class="fa fa-angle-down"></i></a>
 <ul class="dropdown-menu" role="menu">
+<li><a href="gallery.html">Gallery</a>
+</li>
 <li><a href="testimonial.html">Testimonial</a></li>
 </ul>
 </li>
@@ -126,11 +130,13 @@ String imgpath;
 </header>
 <div class="cp_inner-banner">
 <img src="images/banner/inner-banner-img-02.png" alt="">
+
 <div class="cp-inner-banner-holder">
 <div class="container">
+
 <ul class="breadcrumb">
 <li><a href="index.jsp">Home</a></li>
-<li class="active" style="color: white;">Packages</li>
+<li><a href="CarList.html">CAR List</a></li>
 </ul>
 </div>
 </div>
@@ -138,50 +144,71 @@ String imgpath;
 <img src="images/animate-bus2.png" alt="">
 </div>
 </div>
-<div id="cp-main-content">
-<section class="cp-gallery-section pd-tb80">
-<div class="container">
-<div class="cp-heading-style1">
-<h2 style="colo:white">Choose  <span style="colo:white"> Packages</span></h2>
-</div>
-<div class="cp-tabs-holder">
-<div class="tab-content">
-<div role="tabpanel" class="tab-pane fade in active">
-<div class="row">
-<% 
-Package_listDaoimpl packlist=new Package_listDaoimpl();
-count=packlist.getcountlist();
-package_namelist=new String[count];
-package_namelist=packlist.getPackagenameslist();
-pack_images=new String[count];
-pack_images=packlist.getpack_imagelist();
-for(int i=0;i<count;i++)
-{
-img=pack_images[i];
-imgpath="images/packimages/"+img;
 
-out.println("<div class='col-md-4 col-sm-6'>");
-out.println("<h4  style='color:black;margin-left:8%;font-family:New Century Schoolbook, serif;'>"+package_namelist[i]+"</h4>");
-out.println("<figure class='cp-gallery-box'>");
-out.println("<img src='"+imgpath+"' alt=''>");
-out.println("<figcaption class='cp-caption'>");
-out.println("<form action='package_info1.html' method='post'>");
-out.println("<h4  style='color:white;'>"+package_namelist[i]+"</h4>");
-out.println("<input type='hidden' name='packselected' value='"+package_namelist[i]+"'>");
-out.println("<input type='hidden' name='packselectedimg' value='"+img+"'>");
-out.println("<input type='submit' value='Book Now'  class='cp-btn-style1'>");
-out.println("</form>");
-out.println("</figcaption>");
-out.println("</figure>");
+<div>
+<div class="cp-heading-style1">
+<h2><br>Booking<span> Information</span></h4>
+</div>
+<% 
+
+
+package_vehiclename = session.getAttribute("package_vehiclename").toString();
+packselected=session.getAttribute("packselected").toString();
+packageprice=session.getAttribute("packageprice").toString();
+packagegst=session.getAttribute("packagegst").toString();
+packagetotal=session.getAttribute("packagetotal").toString();
+ 
+out.println("<div class='col-md-6' style='margin-top:5%'>");
+out.println("<article class='cp-taxi-holder'>");
+
+out.println("<div class='cp-reservation-box' style='width:100%;height:85%';>");
+out.println("<div class='cp-text'>");
+
+out.println("<form action='packageFinal.html' method='post'>");
+out.println("<div class='inner-holder'>");
+out.println("<table class='table' style='margin-top:-4%;margin-left:-41%'>");
+out.println("<tr>");
+out.println("<th style='border:none;'>Selected Pcakagre :</th>" );
+out.println("<td style='border:none;'>" +packselected+"</td>");
+out.println("</tr>");
+out.println("<br>");
+
+out.println("<tr>");
+out.println("<th style='border:none;'>Selected Vehicle:</th>" );
+out.println("<td style='border:none;'>" +package_vehiclename+"</td>");
+out.println("</tr>");
+
+out.println("<tr>");
+out.println("<th style='border:none;'>Package Amount:</th>" );
+out.println("<td style='border:none;'>" +packageprice+"</td>");
+out.println("</tr>");
+
+out.println("<tr>");
+out.println("<th style='border:none;'>Gst Amount:</th>" );
+out.println("<td style='border:none;'>" +packagegst+"</td>");
+out.println("</tr>");
+
+
+out.println("<tr>");
+out.println("<th style='border:none;'>Toatl <b>Approx.</b> Amount:</th>" );
+out.println("<td style='border:none;'>" +packagetotal+"</td>");
+out.println("</tr>");
+out.println("</table>");
+out.println("<input type='submit' value='proceed'>");
 out.println("</div>");
-}
+out.println("</form>");
+
+out.println("</div>");
+out.println("</div>");
+out.println("</article>");
+out.println("</div>");
+
+
+out.println("</div>");
+out.println("</div>");
 %>
-</div>
-</div>
-</div>
-</div>
-</section>
 <footer class="cp_footer">
+
 <section class="cp-ft-top-section pd-t80">
 <div class="container">
 <div class="row">
@@ -202,10 +229,12 @@ out.println("</div>");
 </div>
 </div>
 </section>
+
 <section class="cp-ft-bottom-section">
 <div class="container">
 <div class="row">
 <div class="col-md-5 col-sm-12">
+
 <div class="cp-ft-form-box">
 <p style="color: white;margin-bottom: 2%">Contact Us</p>
 <p style="color: white;margin-bottom: 2%"><i class="fa fa-phone-square" aria-hidden="true"></i>+91 73537 23333</p>
@@ -213,6 +242,7 @@ out.println("</div>");
 </div>
 </div>
 <div class="col-md-7 col-sm-12">
+
 <nav class="cp-footer-nav">
 <ul>
 <li><a href="index.jsp">Home</a></li>
@@ -230,18 +260,20 @@ out.println("</div>");
 </section>
 </footer>
 </div>
+
 <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
 <script src="js/html5shiv.js" type="text/javascript"></script>
+
 <script type="text/javascript" src="js/migrate.js"></script>
+
 <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+
 <script type="text/javascript" src="js/custom-script.js"></script>
-<script language="javascript" type="text/javascript">
-     $(window).load(function() {
-     /* $('.preloader_wrapper').hide();
-  */
-  $('.preloader_wrapper').delay(600).fadeOut("slow"); 
-   });
-</script>
+
+	
+
 </body>
 </html>

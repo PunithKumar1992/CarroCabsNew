@@ -30,6 +30,8 @@ public class AirportbookingDaoimpl implements AirportbookingDao{
 		airbook.setPhone(session1.getAttribute("airphone").toString());
 		airbook.setEmail(session1.getAttribute("airemail").toString());
 		airbook.setAddress(session1.getAttribute("airaddress").toString());
+		airbook.setAddress(session1.getAttribute("airaddress").toString());
+		
 		
 		
 		SessionFactory factory=HibernateUtil.getSessionFactory();

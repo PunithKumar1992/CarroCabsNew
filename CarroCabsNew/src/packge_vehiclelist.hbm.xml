@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.org/dtd/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.appfone.carro.pojo">
+
+	<class name="Packge_vehiclelist" table="packge_vehiclelist">
+		<id name="pv_id" type="int">
+			<column name="pv_id" />
+			<generator class="increment" />
+		</id>
+		<property name="vehicle_name" type="string">
+			<column name="vehicle_name"></column>
+		</property>
+		<property name="price" type="string">
+			<column name="price"></column>
+		</property>
+		
+		<property name="pack_vehicleimage" type="string">
+			<column name="pack_vehicleimage" />
+		</property>
+		
+		<many-to-one name="packlist" class="com.appfone.carro.pojo.Package_list">
+			<column name="pack_id" not-null="true"></column>
+		</many-to-one>
+	</class>
+
+</hibernate-mapping>

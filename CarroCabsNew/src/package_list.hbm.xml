@@ -14,6 +14,7 @@
 		<property name="pack_image" type="string">
 			<column name="pack_image" />
 		</property>
+	
 		<set name="sight_seen" table="package_sightseen" cascade="all">
 			<key>
 				<column name="pack_id" not-null="true"></column>
@@ -26,6 +27,26 @@
 				<column name="pack_id" not-null="true"></column>
 			</key>
 			<one-to-many class="com.appfone.carro.pojo.Package_sightseen"/>
+		</set>
+		
+		<set name="vehicle_name" table="packge_vehiclelist" cascade="all"  lazy="true" fetch="select" inverse="true">
+			<key>
+				<column name="pack_id" not-null="true"></column>
+			</key>
+			<one-to-many class="com.appfone.carro.pojo.Packge_vehiclelist"/>
+		</set>
+		<set name="price" table="packge_vehiclelist" cascade="all"  lazy="true" fetch="select" inverse="true">
+			<key>
+				<column name="pack_id" not-null="true"></column>
+			</key>
+			<one-to-many class="com.appfone.carro.pojo.Packge_vehiclelist"/>
+		</set>
+		
+		<set name="pack_vehicleimage" table="packge_vehiclelist" cascade="all"  lazy="true" fetch="select" inverse="true">
+			<key>
+				<column name="pack_id" not-null="true"></column>
+			</key>
+			<one-to-many class="com.appfone.carro.pojo.Packge_vehiclelist"/>
 		</set>
 	</class>
 	

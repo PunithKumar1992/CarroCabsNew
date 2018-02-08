@@ -70,7 +70,11 @@
 	String imgpath;
 	String packselected;
 	String pack_sightseen[];
-	String pack_subsightseen[];%>
+	String pack_subsightseen[];
+	String packselectedimage;
+	
+	%>
+	
 
 
 	<%
@@ -344,14 +348,17 @@ div.gallery:hover {
 
 						<div class="slider responsive">
 							<%
+								
 								Package_listDaoimpl packlist = new Package_listDaoimpl();
 								count = packlist.getcountlist();
 								package_namelist = new String[count];
 								package_namelist = packlist.getPackagenameslist();
 								pack_images = new String[count];
 								pack_images = packlist.getpack_imagelist();
-
+									
+									
 								for (int i = 0; i < count; i++) {
+																	
 									img = pack_images[i];
 									imgpath = "images/packimages/" + img;
 									out.println("<div>");
@@ -362,11 +369,13 @@ div.gallery:hover {
 											+ "</h4>");
 									out.println("<input type='hidden' name='packselected' value='"
 											+ package_namelist[i] + "'>");
+									out.println("<input type='hidden' name='packselectedimg' value='"+img+"'>");		
 									out.println("<input type='submit' value='Book Now'   class='cp-btn-style1'>");
 									out.println("</form>");
 									out.println("</figcaption> </figure>");
 									out.println("</div>");
 								}
+								
 							%>
 
 

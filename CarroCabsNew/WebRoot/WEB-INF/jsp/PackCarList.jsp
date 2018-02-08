@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@page import="com.appfone.carro.Daoimpl.Package_vehiclelistDaoimpl"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,6 +34,14 @@
    
 </head>
 <body>
+<%!
+ String pack_vehiclename[];
+String pack_vehicleprice[];
+String pack_vehicleimage[];
+String packselected;
+String img;
+String imgpath;
+%>
 <header class="cp_header" style="margin-top: -7%;">
 <div id="cp-slide-menu" class="cp_side-navigation">
 <ul class="navbar-nav">
@@ -135,89 +144,41 @@
 <section style="margin-top:8% ">
 <h2>Package Car List</h2>
 <div class="col-md-12" >
-<div class="col-md-3">
-<article class="cp-taxi-holder">
-<figure class="cp-thumb">
-<img src="images/Etios.png" alt="">
-</figure>
-<div class="cp-text">
-<h4 style="color:#bf3738">Sedan A/c</h4>
-<p> price: 8300</p>
-<a href="Contactinfo.html" class="cp-btn-style1">Select</a>
-</div>
-</article>
+<% 
+packselected=session.getAttribute("packselected").toString();
+Package_vehiclelistDaoimpl pv_list= new Package_vehiclelistDaoimpl();
+pack_vehiclename=pv_list.getPack_vehiclename(packselected);
+pack_vehicleprice=pv_list.getPack_vehicleprice(packselected);
+pack_vehicleimage=pv_list.getPack_vehicleimage(packselected);
+for(int i=0;i<pack_vehiclename.length;i++)
+{
+	img=pack_vehicleimage[i];
+	imgpath="images/vehicleimages/"+img;
+out.println("<div class='col-md-3'>");
+out.println("<form action='packagecontact_info.html' method='post'>");
+out.println("<article class='cp-taxi-holder'>");
+out.println("<figure class='cp-thumb'>");
+out.println("<img src='"+imgpath+"' alt=''>");
+out.println("</figure>");
+out.println("<div class='cp-text'>");
+out.println("<h4 style='color:#bf3738'>"+pack_vehiclename[i]+"</h4>");
+out.println("<p> price:"+pack_vehicleprice[i]+"</p>");
+out.println("<input type='hidden' name='package_vehiclename' value='"+pack_vehiclename[i]+"'>");
+out.println("<input type='hidden' name='package_vehicleprice' value='"+pack_vehicleprice[i]+"'>"); 
+out.println("<input type='hidden' name='package_vehicleimage' value='"+pack_vehicleimage[i]+"'>"); 
+out.println("<input type='submit' value='select' class='cp-btn-style1'>");
 
-</div>
+out.println("</div>");
 
-<div class="col-md-3">
+out.println("</article>");
+out.println("</form>");
+out.println("</div>");
+}
+%>
 
-<article class="cp-taxi-holder">
-<figure class="cp-thumb">
-<img src="images/innova.png" alt="">
-</figure>
-<div class="cp-text">
-<h4 style="color:#bf3738">Innova A/c</h4>
-<p> price: 13200</p> 
-<a href="Contactinfo.html" class="cp-btn-style1">Select</a>
-</div>
-</article>
-</div>
-<div class="col-md-3">
-<article class="cp-taxi-holder">
-<figure class="cp-thumb">
-<img src="images/crysta.png" alt="">
-</figure>
-<div class="cp-text">
-<h4 style="color:#bf3738">Crysta A/c</h4>
-	<p> price: 14200</p>
 
-<a href="Contactinfo.html" class="cp-btn-style1">Select</a>
-</div>
-</article>
 
-</div>
-<div class="col-md-3">
-<article class="cp-taxi-holder">
-<figure class="cp-thumb">
-<img src="images/tt non ac.png" alt="">
-</figure>
-<div class="cp-text">
-<h4 style="color:#bf3738">Tempo travellar</h4>
-	<p> price: 15600/ </p>
 
-<a href="Contactinfo.html" class="cp-btn-style1">Select</a>
-</div>
-</article>
-
-</div>
-<div class="col-md-3">
-<article class="cp-taxi-holder">
-<figure class="cp-thumb">
-<img src="images/tt ac.png" alt="">
-</figure>
-<div class="cp-text">
-<h4 style="color:#bf3738">Tempo travellar A/c</h4>
-	<p> price: 16100</p>
-
-<a href="Contactinfo.html" class="cp-btn-style1">Select</a>
-</div>
-</article>
-
-</div>
-<div class="col-md-3">
-<article class="cp-taxi-holder">
-<figure class="cp-thumb">
-<img src="images/tavera.png" alt="">
-</figure>
-<div class="cp-text">
-<h4 style="color:#bf3738">Tavera</h4>
-	<p> price: 11500</p>
-
-<a href="Contactinfo.html" class="cp-btn-style1">Select</a>
-</div>
-</article>
-
-</div>
 
 </div>
 <script>

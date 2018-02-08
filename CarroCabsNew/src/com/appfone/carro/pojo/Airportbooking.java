@@ -14,6 +14,8 @@ public class Airportbooking {
 	private String basicamt;
 	private String gst;
 	private String total;
+	
+	
 	public int getAirb_id() {
 		return airb_id;
 	}
@@ -86,6 +88,7 @@ public class Airportbooking {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+	
 	
 	
 	
