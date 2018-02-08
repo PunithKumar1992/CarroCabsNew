@@ -53,11 +53,12 @@
 </ul>
 </li>
 <li><a href=packages.html">Packages</a></li>
-<li><a href="faq.html">FAQs</a>
-</li>
+
 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages <i class="fa fa-angle-down"></i></a>
 <ul class="dropdown-menu" role="menu">
 <li><a href="testimonial.html">Testimonial</a></li>
+<li><a href="faq.html">FAQs</a>
+</li>
 </ul>
 </li>
 <li><a href="contact-us.html">Contact Us
@@ -101,11 +102,12 @@
 </ul>
 </li>
 <li><a href="packages.html">Packages</a></li>
-<li><a href="faq.html">FAQs</a>
-</li>
+
 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages <i class="fa fa-angle-down"></i></a>
 <ul class="dropdown-menu" role="menu">
 <li><a href="testimonial.html">Testimonial</a></li>
+<li><a href="faq.html">FAQs</a>
+</li>
 </ul>
 </li>
 <li><a href="contact-us.html">Contact Us</a>
@@ -141,18 +143,18 @@
 
 <div class=" col-md-12" style="margin-top: 5%;margin-bottom: 5%;">
 <div class="cp-heading-style1">
-<h3 style="color: Black;">PACKAGE<span  style="color: Black;">TOUR</span></h3>
+<p style="color: Black;font-size: 30px;">PACKAGE<span  style="color: Black;font-size: 30px;">  TOUR</span></p>
 </div>
 <div class="col-md-6">
 <img src="images/s4.jpg" style="width: 97%;">
 </div>
 <div class="col-md-6">
 
-<p style="color:Black;margin-top:5%;text-align: justify;">We provide out station Cab services in various options,you can also choose as per your requirement.We provide out station Cab services in various options,you can also choose as per your requirement.
+<p style="color:Black;margin-top:5%;text-align: justify;font-size: 18px;">We provide out station Cab services in various options,you can also choose as per your requirement.We provide out station Cab services in various options,you can also choose as per your requirement.
 </p>
-<p style="color:Black;text-align: justify;">We provide out station Cab services in various options,you can also choose as per your requirement.We provide out station Cab services in various options,you can also choose as per your requirement.
+<p style="color:Black;text-align: justify;font-size: 18px;">We provide out station Cab services in various options,you can also choose as per your requirement.We provide out station Cab services in various options,you can also choose as per your requirement.
 </p>
-<p style="colo:rBlack;text-align: justify;">We provide out station Cab services in various options,you can also choose as per your requirement.We provide out station Cab services in various options,you can also choose as per your requirement.
+<p style="colo:rBlack;text-align: justify;font-size: 18px;">We provide out station Cab services in various options,you can also choose as per your requirement.We provide out station Cab services in various options,you can also choose as per your requirement.
 </p>
 </div>
 </div>
@@ -185,19 +187,9 @@
 <div class="col-md-5 col-sm-12">
 
 <div class="cp-ft-form-box">
-<h4>Already Regiterd? <a href="#">Sign in Now</a></h4>
-<form action="form.php" method="post">
-<div class="inner-holder">
-<input type="text" placeholder="Name" title="Please Enter the valid Name." required pattern="^[a-zA-Z0-9\s]+$">
-</div>
-<div class="inner-holder">
-<input type="text" placeholder="Email"  title="Please Enter the valid Email." required pattern="[a-zA-Z]+[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-</div>
-<label style="margin-left: 2%; margin-top: 3%;"> <input type="checkbox"> Remember me </label>
-<label><a href="#" class="remember-pw">Forgot the password</a></label>
-
-<input type="submit" value="Submit">
-</form>
+<p style="color: white;margin-bottom: 2%">Contact Us</p>
+<p style="color: white;margin-bottom: 2%"><i class="fa fa-phone-square" aria-hidden="true"></i>+91 73537 23333</p>
+<p style="color: white;margin-bottom: 2%"><i class="fa fa-address-book" aria-hidden="true"></i>18/9 Sir M Vishweshwaraiah Layout 8th Block Muddanapalya Bangalore ,India.</p>
 </div>
 </div>
 <div class="col-md-7 col-sm-12">
@@ -212,7 +204,7 @@
 <li><a href="contact-us.html">Contact Us</a></li>
 </ul>
 </nav>
-<p> All Rights Reserved 2018 </p>
+<p style="color:white;"> All Rights Reserved 2018 </p>
 </div>
 </div>
 </div>

@@ -53,11 +53,12 @@
 </ul>
 </li>
 <li><a href="packages.html">Packages</a></li>
-<li><a href="faq.html">FAQs</a>
+
 </li>
 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages <i class="fa fa-angle-down"></i></a>
 <ul class="dropdown-menu" role="menu">
 <li><a href="testimonial.html">Testimonial</a></li>
+<li><a href="faq.html">FAQs</a>
 </ul>
 </li>
 <li><a href="contact-us.html">Contact Us
@@ -99,10 +100,11 @@
 </ul>
 </li>
 <li><a href="packages.html">Packages</a></li>
-<li><a href="faq.html">FAQs</a>
+
 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages <i class="fa fa-angle-down"></i></a>
 <ul class="dropdown-menu" role="menu">
 <li><a href="testimonial.html">Testimonial</a></li>
+<li><a href="faq.html">FAQs</a>
 </ul>
 </li>
 <li><a href="contact-us.html">Contact Us</a>
@@ -336,7 +338,7 @@ cursor:not-allowed;
 <div class="container">
 
 <div class="cp-why-choose-text">
-<a href="booking.jsp" class="choose-btn">Book your cab with confidence</a>
+<a href="" class="choose-btn" style="text-decoration: none;	">Book your cab with confidence</a>
 <h3>Why Choose</h3>
 <h2> <span>CARRO</span></h2>
 <p>CARRO is knowing and full filling all the moving needs of their clients.We have been professional service since many years ,and we have developed one services in a waay that cater to both implicit and explicit needs of our clients.</p>
@@ -399,7 +401,7 @@ cursor:not-allowed;
 <img src="images/swiftdzire.png" alt="">
 </figure>
 <div class="cp-text">
-<h3 style="color:black">Swift Dzire</h3>
+<p style="color:black;font-size: 21px;">Swift Dzire</p>
 
 </div>
 </article>
@@ -410,7 +412,7 @@ cursor:not-allowed;
 <img src="images/hyndai.png" alt="">
 </figure>
 <div class="cp-text">
-<h3 style="color:black">Hyundai Accent</h3>
+<p style="color:black;font-size: 21px;">Hyundai Accent</p>
 </div>
 </article>
 </div>
@@ -420,7 +422,7 @@ cursor:not-allowed;
 <img src="images/Etios.png" alt="">
 </figure>
 <div class="cp-text">
-<h3 style="color:black">Etios</h3>
+<p style="color:black;font-size: 21px;">Etios</p>
 </div>
 </article>
 </div>
@@ -435,7 +437,7 @@ cursor:not-allowed;
 <img src="images/indica.png" alt="">
 </figure>
 <div class="cp-text">
-<h3 style="color:black">Tata Indica V2</h3>
+<p style="color:black;font-size: 21px;">Tata Indica</p>
 </div>
 </article>
 </div>
@@ -446,7 +448,7 @@ cursor:not-allowed;
 <img src="images/Etios.png" alt="">
 </figure>
 <div class="cp-text">
-<h3 style="color:black">Etios Liva </h3>
+<p style="color:black;font-size: 21px;">Etios </p>
 </div>
 </article>
 </div>
@@ -457,7 +459,7 @@ cursor:not-allowed;
 <img src="images/Swift.png" alt="">
 </figure>
 <div class="cp-text">
-<h3 style="color:black">Swift</h3>
+<p style="color:black;font-size: 21px;">Swift</p>
 </div>
 </article>
 </div>
@@ -472,7 +474,7 @@ cursor:not-allowed;
 <img src="images/innova.png" alt="">
 </figure>
 <div class="cp-text">
-<h3 style="color:black">Innova</h3>
+<p style="color:black;font-size: 21px;">Innova</p>
 </div>
 </article>
 </div>
@@ -483,7 +485,7 @@ cursor:not-allowed;
 <img src="images/tavera.png" alt="">
 </figure>
 <div class="cp-text">
-<h3 style="color:black">Tavera </h3>
+<p style="color:black;font-size: 21px;">Tavera </p>
 </div>
 </article>
 </div>
@@ -494,7 +496,7 @@ cursor:not-allowed;
 <img src="images/Eritga.png" alt="">
 </figure>
 <div class="cp-text">
-<h3 style="color:black">Ertiga</h3>
+<p style="color:black;font-size: 21px;">Ertiga</p>
 </div>
 </article>
 </div>
@@ -509,7 +511,7 @@ cursor:not-allowed;
 <img src="images/tt non ac.png" alt="">
 </figure>
 <div class="cp-text">
-<h3 style="color:black">Tempo Traveller [AC/Non-AC]</h3>
+<p style="color:black;font-size: 21px;">Tempo Traveller [AC/Non-AC]</p>
 
 </div>
 </article>
@@ -521,7 +523,7 @@ cursor:not-allowed;
 <img src="images/21 seats ac.png" alt="">
 </figure>
 <div class="cp-text">
-<h3 style="color:black">Mini Bus 21 Seater[AC/Non-AC] </h3>
+<p style="color:black;font-size: 21px;">Mini Bus 21 Seater[AC/Non-AC] </p>
 
 </div>
 </article>
@@ -533,7 +535,7 @@ cursor:not-allowed;
 <img src="images/50 seats ac.png" alt="">
 </figure>
 <div class="cp-text">
-<h3 style="color:black">Bus 50 Seater[AC/Non-AC]</h3>
+<p style="color:black;font-size: 21px;">Bus 50 Seater[AC/Non-AC]</p>
 
 </div>
 </article>
@@ -635,7 +637,7 @@ One Way Rental and how much they cost?
 </section>
 
 
-<section class="cp-faq-section pd-tb80" style="background-color:#d08d3d;">
+<section class="cp-faq-section pd-tb80" style="background-image:url(images/ban3.jpg);">
 <div class="container">
 <div class="cp-heading-style1">
 <h2><span>Package Information</span></h2>
@@ -645,18 +647,19 @@ One Way Rental and how much they cost?
 /* Style the tab */
 .tab {
     float: left;
-    border: 1px solid #ccc;
-    background-color: #f1f1f1;
+
+    background-color: transparent;
     width: 30%;
     height: auto;
+     border-radius:12px;
   
 }
 
 /* Style the buttons inside the tab */
 .tab button {
     display: block;
-    background-color: inherit;
-    color: black;
+    background-color:#00000063;
+    color: #ee9e1f;
     padding: 22px 16px;
     width: 100%;
     border: none;
@@ -665,12 +668,15 @@ One Way Rental and how much they cost?
     cursor: pointer;
     transition: 0.3s;
     font-size: 17px;
-    border-radius: 15px;
+     border-radius:20px;
+     border:1px solid darkorange;
+   
 }
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-    background-color: #ddd;
+    background-color: darkorange;
+    color:black;
 }
 
 /* Create an active/current "tab button" class */
@@ -682,10 +688,13 @@ One Way Rental and how much they cost?
 .tabcontent {
     float: left;
     padding: 0px 12px;
-     background-color:#f1f1f1;
+     background-color:#00000063;
     width: 70%;
     border-left: none;
     height: 662px;
+     border-radius:12px;
+   color:#ee9e1f;
+   border:1px solid darkorange;
 }
 </style>
 :</p>
@@ -704,41 +713,41 @@ One Way Rental and how much they cost?
 
 <div id="Mysore Coorg 3Days 2Night Package" class="tabcontent">
   <h3>Mysore Coorg 3Days 2Night Package</h3>
-  <p>Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort.</p>
+  <p style="color:white;">Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort.</p>
 </div>
 
 <div id="Mysore Ooty 3 Night 4Days Package" class="tabcontent">
   <h3>Mysore Ooty 3 Night 4Days Package</h3>
-  <p>Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort.</p> 
+  <p style="color:white;">Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort.</p> 
 </div>
 
 <div id="Mysore Ooty and Kodaikanal 5Night 6Days Package" class="tabcontent">
   <h3>Mysore Ooty and Kodaikanal 5Night 6Days Package</h3>
-  <p>Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort.</p>
+  <p style="color:white;">Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort.</p>
 </div>
 <div id="Mysore Waynad 3Night 4Days Package" class="tabcontent">
   <h3>Mysore Waynad 3Night 4Days Package</h3>
-  <p>Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort.</p>
+  <p style="color:white;">Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort.</p>
 </div>
 <div id="Pondycherry 1Night 2Days Package" class="tabcontent">
   <h3>Pondycherry 1Night 2Days Package</h3>
-  <p>Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort.</p>
+  <p style="color:white;">Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort.</p>
 </div>
 <div id="Munnar and Allephy 4Night 5Days Package" class="tabcontent">
   <h3>Munnar and Allephy 4Night 5Days Package</h3>
-  <p>Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort..</p>
+  <p style="color:white;">Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort..</p>
 </div>
 <div id="Goa 2Night 3Days Package" class="tabcontent">
   <h3>Goa 2Night 3Days Package</h3>
-  <p>Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort.</p>
+  <p style="color:white;">Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort.</p>
 </div>
 <div id="Shirdi 2Night 3Days Package" class="tabcontent">
   <h3>Shirdi 2Night 3Days Package</h3>
-  <p>Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort.</p>
+  <p style="color:white;">Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort.</p>
 </div>
 <div id="One day Nandhi hills Package" class="tabcontent">
   <h3>One day Nandhi hills Package</h3>
-  <p>Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort..</p>
+  <p style="color:white;">Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort..</p>
 </div>
 <script>
 function openCity(evt, cityName) {
@@ -763,57 +772,57 @@ document.getElementById("defaultOpen").click();
 </div>
 </section>
 
-<section class="cp-advertising-section pd-tb80">
-<div class="container">
-<div class="cp-heading-style2">
-<h2>CARRO <span>Advertising</span></h2>
-</div>
-<div class="row">
-<div class="col-md-4 col-sm-12">
+<!-- <section class="cp-advertising-section pd-tb80"> -->
+<!-- <div class="container"> -->
+<!-- <div class="cp-heading-style2"> -->
+<!-- <h2>CARRO <span>Advertising</span></h2> -->
+<!-- </div> -->
+<!-- <div class="row"> -->
+<!-- <div class="col-md-4 col-sm-12"> -->
 
-<div class="cp-advertising-box">
-<figure class="thumb">
-<img src="images/advertising-sm-thumb-01.png" alt="">
-<span class="num">1</span>
-</figure>
-<div class="cp-text">
-<h4>Choose a taxi model</h4>
-<p>Speeding and minor offences are fine and will not incur any additional...{+}</p>
-</div>
-</div>
-</div>
-<div class="col-md-4 col-sm-12">
+<!-- <div class="cp-advertising-box"> -->
+<!-- <figure class="thumb"> -->
+<!-- <img src="images/advertising-sm-thumb-01.png" alt=""> -->
+<!-- <span class="num">1</span> -->
+<!-- </figure> -->
+<!-- <div class="cp-text"> -->
+<!-- <h4>Choose a taxi model</h4> -->
+<!-- <p>Speeding and minor offences are fine and will not incur any additional...{+}</p> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- <div class="col-md-4 col-sm-12"> -->
 
-<div class="cp-advertising-box">
-<figure class="thumb">
-<img src="images/advertising-sm-thumb-02.png" alt="">
-<span class="num">2</span>
-</figure>
-<div class="cp-text">
-<h4>Advertising position</h4>
-<p>Speeding and minor offences are fine and will not incur any additional...{+}</p>
-</div>
-</div>
-</div>
-<div class="col-md-4 col-sm-12">
+<!-- <div class="cp-advertising-box"> -->
+<!-- <figure class="thumb"> -->
+<!-- <img src="images/advertising-sm-thumb-02.png" alt=""> -->
+<!-- <span class="num">2</span> -->
+<!-- </figure> -->
+<!-- <div class="cp-text"> -->
+<!-- <h4>Advertising position</h4> -->
+<!-- <p>Speeding and minor offences are fine and will not incur any additional...{+}</p> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- <div class="col-md-4 col-sm-12"> -->
 
-<div class="cp-advertising-box">
-<figure class="thumb">
-<img src="images/advertising-sm-thumb-03.png" alt="">
-<span class="num">3</span>
-</figure>
-<div class="cp-text">
-<h4>Select time period</h4>
-<p>Speeding and minor offences are fine and will not incur any additional...{+}</p>
-</div>
-</div>
-</div>
-<div class="col-md-12 cp-btn-holder">
-<a href="#" class="cp-btn-style1">Pricing Plans</a>
-</div>
-</div>
-</div>
-</section>
+<!-- <div class="cp-advertising-box"> -->
+<!-- <figure class="thumb"> -->
+<!-- <img src="images/advertising-sm-thumb-03.png" alt=""> -->
+<!-- <span class="num">3</span> -->
+<!-- </figure> -->
+<!-- <div class="cp-text"> -->
+<!-- <h4>Select time period</h4> -->
+<!-- <p>Speeding and minor offences are fine and will not incur any additional...{+}</p> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- <div class="col-md-12 cp-btn-holder"> -->
+<!-- <a href="#" class="cp-btn-style1">Pricing Plans</a> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </section> -->
 </div>
 
 <footer class="cp_footer">

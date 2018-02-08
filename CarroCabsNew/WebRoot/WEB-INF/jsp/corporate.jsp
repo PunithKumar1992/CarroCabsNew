@@ -1,4 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -55,12 +54,13 @@
 </ul>
 </li>
 <li><a href=packages.html">Packages</a></li>
-<li><a href="faq.html">FAQs</a>
-</li>
+
 <!-- <li><a href="booking.html">View a booking</a> -->
 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages <i class="fa fa-angle-down"></i></a>
 <ul class="dropdown-menu" role="menu">
 <li><a href="testimonial.html">Testimonial</a></li>
+<li><a href="faq.html">FAQs</a>
+</li>
 
 </ul>
 </li>
@@ -104,13 +104,14 @@
 </ul>
 </li>
 <li><a href="packages.html">Packages</a></li>
-<li><a href="faq.html">FAQs</a>
-</li>
+
 <!-- <li><a href="booking.html">View a booking</a> -->
 </li>
 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages <i class="fa fa-angle-down"></i></a>
 <ul class="dropdown-menu" role="menu">
 <li><a href="testimonial.html">Testimonial</a></li>
+<li><a href="faq.html">FAQs</a>
+</li>
 </ul>
 </li>
 <li><a href="contact-us.html">Contact Us</a>
@@ -145,18 +146,18 @@
 
 <div class=" col-md-12" style="margin-top: 5%;margin-bottom: 5%;">
 <div class="cp-heading-style1">
-<h3>CORPORATE<span> TOUR</span></h3>
+<p style="color: Black;font-size: 30px;">CORPORATE<span style="color: Black;font-size: 30px;"> TOUR</span></p>
 </div>
 <div class="col-md-6">
 <img src="images/s1.jpg" style="width: 97%;">
 </div>
 <div class="col-md-6">
 
-<p style="color:Black;margin-top:5%;text-align: justify;">We provide out station Cab services in various options,you can also choose as per your requirement.We provide out station Cab services in various options,you can also choose as per your requirement.
+<p style="color:Black;margin-top:5%;text-align: justify;font-size: 18px;">We provide out station Cab services in various options,you can also choose as per your requirement.We provide out station Cab services in various options,you can also choose as per your requirement.
 </p>
-<p style="color:Black;text-align: justify;">We provide out station Cab services in various options,you can also choose as per your requirement.We provide out station Cab services in various options,you can also choose as per your requirement.
+<p style="color:Black;text-align: justify;font-size: 18px;">We provide out station Cab services in various options,you can also choose as per your requirement.We provide out station Cab services in various options,you can also choose as per your requirement.
 </p>
-<p style="color:Black;text-align: justify;">We provide out station Cab services in various options,you can also choose as per your requirement.We provide out station Cab services in various options,you can also choose as per your requirement.
+<p style="color:Black;text-align: justify;font-size: 18px;">We provide out station Cab services in various options,you can also choose as per your requirement.We provide out station Cab services in various options,you can also choose as per your requirement.
 </p>
 </div>
 </div>

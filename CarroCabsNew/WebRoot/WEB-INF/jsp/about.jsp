@@ -55,11 +55,12 @@
 </ul>
 </li>
 <li><a href=packages.html">Packages</a></li>
-<li><a href="faq.html">FAQs</a>
+
 </li>
 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages <i class="fa fa-angle-down"></i></a>
 <ul class="dropdown-menu" role="menu">
 <li><a href="testimonial.html">Testimonial</a></li>
+<li><a href="faq.html">FAQs</a></li>
 </ul>
 </li>
 <li><a href="contact-us.html">Contact Us
@@ -106,11 +107,12 @@
 </ul>
 </li>
 <li><a href="packages.html">Packages</a></li>
-<li><a href="faq.html">FAQs</a>
+
 </li>
 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages <i class="fa fa-angle-down"></i></a>
 <ul class="dropdown-menu" role="menu">
 <li><a href="testimonial.html">Testimonial</a></li>
+<li><a href="faq.html">FAQs</a>
 </ul>
 </li>
 <li><a href="contact-us.html">Contact Us</a>
@@ -260,84 +262,84 @@
 </div>
 </section>
 
-<section class="cp-testimonial-section pd-tb80">
-<div class="container">
-<div class="cp-heading-style2">
-<h2>Latest <span>Reviews</span></h2>
-</div>
-<div class="owl-carousel" id="cp-testimonial-slider">
-<div class="item">
-<div class="cp-testimonial-inner">
-<div class="row">
-<div class="col-md-8 col-sm-8">
-<div class="cp-text">
-<strong>Highly recommended by our customers</strong>
-<blockquote class="cp-blockquote">
-Sabemos que el diferencial está en los detalles, y es por ello que nuestros se
-vicios en alquiler de vehículos, tanto en el sector turístico como en el empr
-sarial, se destacan por su calidad y buen gusto para brindarte una experien
-cia única, segura y agradable.
-</blockquote>
-<span>ALBERT EISHAL, ART DIRECTOR</span>
-</div>
-</div>
-<div class="col-md-4 col-sm-4">
-<span class="cp-icon">
-<i class="fa fa-user"></i>
-</span>
-</div>
-</div>
-</div>
-</div>
-<div class="item">
-<div class="cp-testimonial-inner">
-<div class="row">
-<div class="col-md-8 col-sm-8">
-<div class="cp-text">
-<strong>Highly recommended by our clients</strong>
-<blockquote class="cp-blockquote">
-Tanto en el sector turístico como en el empr
-sarial, se destacan por su calidad y buen gusto para brindarte una experien
-cia única, segura y agradable Sabemos que el diferencial está en los detalles, y es por ello que nuestros se
-vicios en alquiler de vehículos, .
-</blockquote>
-<span>Niky John, ART DIRECTOR</span>
-</div>
-</div>
-<div class="col-md-4 col-sm-4">
-<span class="cp-icon">
-<i class="fa fa-user"></i>
-</span>
-</div>
-</div>
-</div>
-</div>
-<div class="item">
-<div class="cp-testimonial-inner">
-<div class="row">
-<div class="col-md-8 col-sm-8">
-<div class="cp-text">
-<strong>Highly recommended by our customers</strong>
-<blockquote class="cp-blockquote">
-Sabemos que el diferencial está en los detalles, y es por ello que nuestros se
-vicios en alquiler de vehículos, tanto en el sector turístico como en el empr
-sarial, se destacan por su calidad y buen gusto para brindarte una experien
-cia única, segura y agradable.
-</blockquote>
-<span>William Bard, ART DIRECTOR</span>
-</div>
-</div>
-<div class="col-md-4 col-sm-4">
-<span class="cp-icon">
-<i class="fa fa-user"></i>
- </span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
+<!-- <section class="cp-testimonial-section pd-tb80"> -->
+<!-- <div class="container"> -->
+<!-- <div class="cp-heading-style2"> -->
+<!-- <h2>Latest <span>Reviews</span></h2> -->
+<!-- </div> -->
+<!-- <div class="owl-carousel" id="cp-testimonial-slider"> -->
+<!-- <div class="item"> -->
+<!-- <div class="cp-testimonial-inner"> -->
+<!-- <div class="row"> -->
+<!-- <div class="col-md-8 col-sm-8"> -->
+<!-- <div class="cp-text"> -->
+<!-- <strong>Highly recommended by our customers</strong> -->
+<!-- <blockquote class="cp-blockquote"> -->
+<!-- Sabemos que el diferencial está en los detalles, y es por ello que nuestros se -->
+<!-- vicios en alquiler de vehículos, tanto en el sector turístico como en el empr -->
+<!-- sarial, se destacan por su calidad y buen gusto para brindarte una experien -->
+<!-- cia única, segura y agradable. -->
+<!-- </blockquote> -->
+<!-- <span>ALBERT EISHAL, ART DIRECTOR</span> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- <div class="col-md-4 col-sm-4"> -->
+<!-- <span class="cp-icon"> -->
+<!-- <i class="fa fa-user"></i> -->
+<!-- </span> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- <div class="item"> -->
+<!-- <div class="cp-testimonial-inner"> -->
+<!-- <div class="row"> -->
+<!-- <div class="col-md-8 col-sm-8"> -->
+<!-- <div class="cp-text"> -->
+<!-- <strong>Highly recommended by our clients</strong> -->
+<!-- <blockquote class="cp-blockquote"> -->
+<!-- Tanto en el sector turístico como en el empr -->
+<!-- sarial, se destacan por su calidad y buen gusto para brindarte una experien -->
+<!-- cia única, segura y agradable Sabemos que el diferencial está en los detalles, y es por ello que nuestros se -->
+<!-- vicios en alquiler de vehículos, . -->
+<!-- </blockquote> -->
+<!-- <span>Niky John, ART DIRECTOR</span> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- <div class="col-md-4 col-sm-4"> -->
+<!-- <span class="cp-icon"> -->
+<!-- <i class="fa fa-user"></i> -->
+<!-- </span> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- <div class="item"> -->
+<!-- <div class="cp-testimonial-inner"> -->
+<!-- <div class="row"> -->
+<!-- <div class="col-md-8 col-sm-8"> -->
+<!-- <div class="cp-text"> -->
+<!-- <strong>Highly recommended by our customers</strong> -->
+<!-- <blockquote class="cp-blockquote"> -->
+<!-- Sabemos que el diferencial está en los detalles, y es por ello que nuestros se -->
+<!-- vicios en alquiler de vehículos, tanto en el sector turístico como en el empr -->
+<!-- sarial, se destacan por su calidad y buen gusto para brindarte una experien -->
+<!-- cia única, segura y agradable. -->
+<!-- </blockquote> -->
+<!-- <span>William Bard, ART DIRECTOR</span> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- <div class="col-md-4 col-sm-4"> -->
+<!-- <span class="cp-icon"> -->
+<!-- <i class="fa fa-user"></i> -->
+<!--  </span> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </section> -->
 </div>
 
 <footer class="cp_footer">
