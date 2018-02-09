@@ -129,8 +129,8 @@
 
 <ul class="nav nav-tabs" role="tablist">
 <li class="active" style="margin-top: 1%;"><a href="#ask-tab1" aria-controls="ask-tab1" role="tab" data-toggle="tab">CARRO Car</a></li>
-<li style="margin-top: 1%;"><a href="#ask-tab2" aria-controls="ask-tab2" role="tab" data-toggle="tab">Hotels</a></li>
-<li><a href="#ask-tab3" aria-controls="ask-tab3" role="tab" data-toggle="tab">Airport Pick/Drop</a></li>
+<li style="margin-top: 1.6%;"><a href="#ask-tab2" aria-controls="ask-tab2" role="tab" data-toggle="tab">Hotels</a></li>
+<li style="margin-top: 0.4%;"><a href="#ask-tab3" aria-controls="ask-tab3" role="tab" data-toggle="tab">Airport Pick/Drop</a></li>
 </ul>
 
 <div class="tab-content">
@@ -174,7 +174,7 @@ input[type=date] {
 
 
 input[type=submit] {
-width:90%;
+width:148px;
     background-color: #4CAF50;
     color: white;
     padding: 12px 20px;
@@ -242,7 +242,7 @@ cursor:not-allowed;
 }
 
 </style>
-<form method="post" action="CarList.html">
+<form method="post" action="CarList.html" >
 
 <div class="col-md-2">
   <select onChange="myfunction()" id="way" name="way"  required>
@@ -292,16 +292,16 @@ cursor:not-allowed;
 </div>
 <div role="tabpanel" class="tab-pane fade in" id="ask-tab2">
 
-<div class="cp-ask-tab-inner">
+    <div class="cp-ask-tab-inner" style="width: 80%;height: 40%;">
 <p style="color:white;font-size:25px;">COMMING SOON... </p>
 </div>
 </div>
-<div role="tabpanel" class="tab-pane fade in" id="ask-tab3">
+<div role="tabpanel" class="tab-pane fade in" id="ask-tab3" style="width:80%;">
 
-<div class="cp-ask-tab-inner">
-<form method="post" action="AirCarList.html">
+    <div class="cp-ask-tab-inner">
+        <form method="post" action="AirCarList.html">
 
-<div class="col-md-2">
+<div class="col-md-2" style="padding-right: 19%;">
   <select onChange="myfunction2()" id="airway" name="airway"  required>
 						<option value="" disabled selected>&#xf1ba Select Way</option> 
 						<option value="PickUp" >PickUp</option>
@@ -309,14 +309,14 @@ cursor:not-allowed;
 						<option value="both">Both</option>
 						</select>
 						</div>
-<div class="col-md-2 wrapper">
+            <div class="col-md-2 wrapper" style="padding-right: 19%;">
 <input type="text"  name="airsource"  id="airsource" placeholder="&#xf015; Pickup Point" required>
 	
     </div>
-    <div class="col-md-2">
+    <div class="col-md-2" style="padding-right: 19%;">
 <input type="text"  name="airdestination"  id="airdestination" placeholder="&#xf015; Destination" required/>
   </div>
-  <div class="col-md-2">  
+  <div class="col-md-2" style="padding-right: 19%;">  
 <input type="text"  id="datepicker2" name="airdate" placeholder="&#xf073; Date"  required/>
 </div>
 <div class="col-md-2">
@@ -1198,6 +1198,7 @@ if(way=="PickUp")
 var source="Kempegowda International Airport, KIAL Road, Devanahalli, Bengaluru, Karnataka, India";
 $("#airsource").val(source);
 
+
 }
 else if(way=="Drop")
 {
@@ -1228,64 +1229,62 @@ $("#airdestination").val("");
 
 $(document).ready(function(){
 
-$("#airway").change(function(){
 
 autocomplete();
 });
 
-});
+
 
 function autocomplete()
 {
 
+   var input = document.getElementById('airsource');
+var options = {
+   componentRestrictions: {
+       country: 'in'
+   }
+};
 
-  var input = document.getElementById('airsource');
-	var options = {
-	   componentRestrictions: {
-	       country: 'in'
-	   }
-	};
+var autocomplete = new google.maps.places.Autocomplete(input, options);
 
-	var autocomplete = new google.maps.places.Autocomplete(input, options);
+$(input).on('input',function(){
+var str = input.value;
+ var prefix = 'BANGALORE, ';
+if(str.indexOf(prefix) == 0) {
+console.log(input.value);
+} else {
+if (prefix.indexOf(str) >= 0) {
+   	input.value = prefix;
+   } else {
+ 	input.value = prefix+str;
+  }
+}
 
-	$(input).on('input',function(){
-	var str = input.value;
-	 var prefix = 'BANGALORE, ';
-	if(str.indexOf(prefix) == 0) {
-	console.log(input.value);
-	} else {
-	if (prefix.indexOf(str) >= 0) {
-	   	input.value = prefix;
-	   } else {
-	 	input.value = prefix+str;
-	  }
-	}
+});
+    
+var input1 = document.getElementById('airdestination');
+var options1 = {
+   componentRestrictions: {
+       country: 'in'
+   }
+};
 
-	});
-	    
-	var input1 = document.getElementById('airdestination');
-	var options1 = {
-	   componentRestrictions: {
-	       country: 'in'
-	   }
-	};
+var autocomplete = new google.maps.places.Autocomplete(input1, options1);
 
-	var autocomplete = new google.maps.places.Autocomplete(input, options1);
+$(input1).on('input',function(){
+var str = input1.value;
+ var prefix = 'BANGALORE, ';
+if(str.indexOf(prefix) == 0) {
+console.log(input.value);
+} else {
+if (prefix.indexOf(str) >= 0) {
+   	input1.value = prefix;
+   } else {
+ 	input1.value = prefix+str;
+  }
+}
 
-	$(input1).on('input',function(){
-	var str = input1.value;
-	 var prefix = 'BANGALORE, ';
-	if(str.indexOf(prefix) == 0) {
-	console.log(input.value);
-	} else {
-	if (prefix.indexOf(str) >= 0) {
-	   	input1.value = prefix;
-	   } else {
-	 	input1.value = prefix+str;
-	  }
-	}
-
-	});    
+});    
 
 
 

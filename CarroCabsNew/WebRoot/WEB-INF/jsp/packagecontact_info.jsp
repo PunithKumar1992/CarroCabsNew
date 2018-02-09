@@ -67,14 +67,13 @@ String packselectedimg;
 </ul>
 </li>
 <li><a href=packages.html">Packages</a></li>
-<li><a href="faq.html">FAQs</a>
-</li>
+
 <!-- <li><a href="booking.html">View a booking</a> -->
 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages <i class="fa fa-angle-down"></i></a>
 <ul class="dropdown-menu" role="menu">
-<li><a href="gallery.html">Gallery</a>
-</li>
 <li><a href="testimonial.html">Testimonial</a></li>
+<li><a href="faq.html">FAQs</a>
+</li>
 </ul>
 </li>
 <li><a href="contact-us.html">Contact Us
@@ -111,13 +110,11 @@ String packselectedimg;
 </ul>
 </li>
 <li><a href="packages.html">Packages</a></li>
-<li><a href="faq.html">FAQs</a>
-</li>
 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages <i class="fa fa-angle-down"></i></a>
 <ul class="dropdown-menu" role="menu">
-<li><a href="gallery.html">Gallery</a>
-</li>
 <li><a href="testimonial.html">Testimonial</a></li>
+<li><a href="faq.html">FAQs</a>
+</li>
 </ul>
 </li>
 <li><a href="contact-us.html">Contact Us</a>
@@ -141,7 +138,10 @@ String packselectedimg;
 
 <ul class="breadcrumb">
 <li><a href="index.jsp">Home</a></li>
-<li><a href="CarList.html">CAR List</a></li>
+<li><a href="packages.jsp">Packages</a></li>
+<li><a href="package_info1.jsp">Package Info</a></li>
+<li><a href="packagecontact_info.jsp">Package Car List</a></li>
+<li class="active" style="color: white;">Package Contact Info</li>
 </ul>
 </div>
 </div>
@@ -152,10 +152,10 @@ String packselectedimg;
 
 <div>
 <div class="cp-heading-style1">
-<h2><br>Contact<span>Information</span></h4>
+<h2><br>Contact<span> Information</span></h2>
 </div>
 
-<div class="col-md-6" style="margin-top:5%">
+<div class="col-md-6" style="margin-top:5%;margin-left: 5%;">
 <article class="cp-taxi-holder">
 
 <div class="cp-reservation-box" style="width:100%;height:85%">
@@ -178,7 +178,7 @@ String packselectedimg;
 </div>
 <div class="inner-holder">
 
-<textarea row="15" col="15" placeholder="address" name="packageaddress" required style="resize:none;"></textarea>
+<textarea row="15" col="15" placeholder="address" name="packageaddress" required style="resize:none;margin-bottom: 5%;"></textarea>
 <div class="inner-holder">
 <input type="text"  name="packagesource"  id="source" placeholder="Pickup Point" required>
 
@@ -205,7 +205,7 @@ session.setAttribute("packageprice", price);
 session.setAttribute("packagegst", gst);
 session.setAttribute("packagetotal", total);
 out.println("<form action='package_info2.html' method='post'");
-out.println("<div class='col-md-3' style='margin-top:5%'>");
+out.println("<div class='col-md-3' style='margin-top:5%;>");
 out.println("<article class='cp-taxi-holder' style='height: 443px;'>");
 out.println("<figure class='cp-thumb'>");
 out.println("<img src='"+imgpath+"' alt=''>");
@@ -214,9 +214,12 @@ out.println("<div class='cp-text'>");
 out.println("<h4 style='color:#bf3738'></h4>");
 out.println("<ul class='cp-meta-listed'>");
 out.println("<li>Package amount: <span>"+price+"</span></li>");
+out.println("<li></li>");
 out.println("<li>Gst: <strong>"+gst+"</strong></li>");
+out.println("<li></li>");
+out.println("<li></li>");
 out.println("<li>Total approx: <strong>"+total+" </strong></li>");
-out.println("<input type='submit' value='Change Package'>");
+out.println("<input type='submit' value='Change Package' style='margin-top:15%;'>");
 out.println("</ul>");
 out.println("</div>");
 out.println("</article>");
@@ -370,6 +373,10 @@ if (prefix.indexOf(str) >= 0) {
         
     </script>
 
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="js/jquery.slimscroll.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+<script src="js/jquery.scrollTo.js"></script>
 
 
 </body>

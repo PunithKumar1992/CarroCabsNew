@@ -4,6 +4,7 @@ public interface Package_listDao {
 	 public abstract int getcountlist();
 	 public abstract String[] getPackagenameslist();
 	 public abstract String[] getpack_imagelist();
+	 public abstract String getpack_sightimagelist(String packselected);
 		
 
 }

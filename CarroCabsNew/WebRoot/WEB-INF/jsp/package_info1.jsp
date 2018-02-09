@@ -66,19 +66,20 @@
 	<%!int count = 0;
 	String package_namelist[];
 	String pack_images[];
+	String pack_sightimages[];
 	String img;
 	String imgpath;
 	String packselected;
 	String pack_sightseen[];
 	String pack_subsightseen[];
-	String packselectedimage;
+	String packselectedimg;
 	
 	%>
 	
 
 
 	<%
-		packselected = session.getAttribute("packselected").toString();
+	packselected=session.getAttribute("packselected").toString();	
 	%>
 
 	<header class="cp_header">
@@ -98,15 +99,15 @@
 					<li><a href="corporate.html">Corporate Tours</a></li>
 				</ul></li>
 			<li><a href=packages.html">Packages</a></li>
-			<li><a href="faq.html">FAQs</a></li>
-			<!-- <li><a href="booking.html">View a booking</a> -->
+			
+			
 			<li class="dropdown"><a href="#" class="dropdown-toggle"
 				data-toggle="dropdown" role="button" aria-expanded="false">Pages
 					<i class="fa fa-angle-down"></i>
 			</a>
 				<ul class="dropdown-menu" role="menu">
 					<li><a href="testimonial.html">Testimonial</a></li>
-
+                     <li><a href="faq.html">FAQs</a></li>
 				</ul></li>
 			<li><a href="contact-us.html">Contact Us </a></li>
 		</ul>
@@ -149,13 +150,14 @@
 									<li><a href="corporate.html">Corporate Tours</a></li>
 								</ul></li>
 							<li><a href="packages.html">Packages</a></li>
-							<li><a href="faq.html">FAQs</a></li>
+							
 							<li class="dropdown"><a href="#" class="dropdown-toggle"
 								data-toggle="dropdown" role="button" aria-expanded="false">Pages
 									<i class="fa fa-angle-down"></i>
 							</a>
 								<ul class="dropdown-menu" role="menu">
 									<li><a href="testimonial.html">Testimonial</a></li>
+									<li><a href="faq.html">FAQs</a></li>
 								</ul></li>
 							<li><a href="contact-us.html">Contact Us</a></li>
 						</ul>
@@ -178,6 +180,7 @@
 
 				<ul class="breadcrumb">
 					<li><a href="index.jsp">Home</a></li>
+					<li><a href="packages.jsp">Packages</a></li>
 					<li class="active" style="color: white">Package Information</li>
 				</ul>
 			</div>
@@ -193,8 +196,8 @@
 		<section>
 		<div class="container">
 			<div class="cp-heading-style2">
-				<h3 class="tittle1"
-					style="font-size:35px;color: black;text-decoration:justify;"><%=packselected%></h3>
+				<h2 class="tittle1"
+					style="font-size:35px;color: black;text-decoration:justify;"><%=packselected%></h2>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
@@ -206,7 +209,7 @@
 								<div role="tabpanel" class="tab-pane fade in active"
 									id="ask-tab1">
 
-									<div class="cp-ask-tab-inner">
+									<div class="cp-ask-tab-inner" style="background-color: #d5f195;">
 
 										<form method="get">
 											<style>
@@ -234,8 +237,8 @@ input[type=date] {
 }
 
 input[type=submit] {
-	width: 25%;
-	background-color: #4CAF50;
+	width: 125px;
+	background-color: #ee9e1f;
 	color: white;
 	padding: 12px 20px;
 	border: none;
@@ -280,6 +283,7 @@ input[type=submit]:hover {
 											<h3>Sight Seen</h3>
 											<ul>
 												<%
+												packselected = session.getAttribute("packselected").toString();
 												Package_sightseenDaoimpl p_sight=new Package_sightseenDaoimpl();
 												pack_sightseen=p_sight.getpackage_sightseen(packselected);
 												pack_subsightseen=p_sight.getpackage_subsightseen(packselected);
@@ -308,25 +312,17 @@ input[type=submit]:hover {
 							</div>
 						</div>
 					</div>
-					<div class="col-md-6">
-						<style>
-div.gallery {
-	margin: 5px;
-	border: 1px solid #ccc;
-	float: left;
-	width: 100%;
-	height: 68%;
-}
-
-div.gallery:hover {
-	border: 1px solid #777;
-}
-</style>
-						<div class="gallery">
-							<a target="_blank" href="images/coorg.png"> <img
-								src="images/Mysore.jpg" alt="carrocabs">
-							</a>
-						</div>
+					<div class="col-md-6"><style>div.gallery {margin: 5px;border: 1px solid #ccc;float: left;width: 100%;height: 68%;border-radius:8px;}div.gallery:hover {border: 1px solid #777;}</style>
+					<%
+					packselected = session.getAttribute("packselected").toString();					
+					 Package_listDaoimpl p_list=new Package_listDaoimpl();
+					String pack_sightimages=new String();
+					pack_sightimages=p_list.getpack_sightimagelist(packselected);
+					String sightimgpath = "images/packagesightseen/"+pack_sightimages;
+					out.println("<div class='gallery'>");
+					out.println("<a target='blank' href='"+sightimgpath+"'> <img src='"+sightimgpath+"' alt='carrocabs' style='width:100%;'>");
+					out.println("</a>");out.println("</div>");
+					%>
 					</div>
 
 				</div>
@@ -348,7 +344,7 @@ div.gallery:hover {
 
 						<div class="slider responsive">
 							<%
-								
+								packselectedimg=session.getAttribute("packselectedimg").toString();
 								Package_listDaoimpl packlist = new Package_listDaoimpl();
 								count = packlist.getcountlist();
 								package_namelist = new String[count];
@@ -358,7 +354,11 @@ div.gallery:hover {
 									
 									
 								for (int i = 0; i < count; i++) {
-																	
+																
+										if(pack_images[i].equals(packselectedimg))	
+										{
+										continue;
+										}						
 									img = pack_images[i];
 									imgpath = "images/packimages/" + img;
 									out.println("<div>");
@@ -370,7 +370,7 @@ div.gallery:hover {
 									out.println("<input type='hidden' name='packselected' value='"
 											+ package_namelist[i] + "'>");
 									out.println("<input type='hidden' name='packselectedimg' value='"+img+"'>");		
-									out.println("<input type='submit' value='Book Now'   class='cp-btn-style1'>");
+									out.println("<input type='submit' value='Book Now'   class='cp-btn-style1' style='text-decoration:none;'>");
 									out.println("</form>");
 									out.println("</figcaption> </figure>");
 									out.println("</div>");
@@ -590,6 +590,12 @@ div.gallery:hover {
 
 
 	<script src="js/index.js"></script>
+	
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="js/jquery.slimscroll.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+<script src="js/jquery.scrollTo.js"></script>
+	
 
 </body>
 </html>

@@ -68,14 +68,11 @@ String grandtotal;
 </ul>
 </li>
 <li><a href=packages.html">Packages</a></li>
-<li><a href="faq.html">FAQs</a>
-</li>
-<!-- <li><a href="booking.html">View a booking</a> -->
 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages <i class="fa fa-angle-down"></i></a>
 <ul class="dropdown-menu" role="menu">
-<li><a href="gallery.html">Gallery</a>
-</li>
 <li><a href="testimonial.html">Testimonial</a></li>
+<li><a href="faq.html">FAQs</a>
+</li>
 </ul>
 </li>
 <li><a href="contact-us.html">Contact Us
@@ -112,12 +109,8 @@ String grandtotal;
 </ul>
 </li>
 <li><a href="packages.html">Packages</a></li>
-<li><a href="faq.html">FAQs</a>
-</li>
 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages <i class="fa fa-angle-down"></i></a>
 <ul class="dropdown-menu" role="menu">
-<li><a href="gallery.html">Gallery</a>
-</li>
 <li><a href="testimonial.html">Testimonial</a></li>
 </ul>
 </li>
@@ -143,6 +136,8 @@ String grandtotal;
 <ul class="breadcrumb">
 <li><a href="index.jsp">Home</a></li>
 <li><a href="CarList.html">CAR List</a></li>
+<li><a href="Contactinfo.jsp">Contact Info</a></li>
+<li class="active" style="color: white;">Booking</li>
 </ul>
 </div>
 </div>
@@ -153,7 +148,7 @@ String grandtotal;
 
 <div>
 <div class="cp-heading-style1">
-<h2><br>Booking<span> Information</span></h4>
+<h2><br>Booking<span> Information</span></h2>
 </div>
 <% 
 car = session.getAttribute("car").toString();
@@ -169,15 +164,15 @@ bata=session.getAttribute("driverbata").toString();
 gst=session.getAttribute("gst").toString();
 grandtotal=session.getAttribute("grandtotal").toString();
 
-out.println("<div class='col-md-6' style='margin-top:5%'>");
+out.println("<div class='col-md-6' style='margin-top:5%;margin-left:5%;'>");
 out.println("<article class='cp-taxi-holder'>");
 
-out.println("<div class='cp-reservation-box' style='width:100%;height:85%';>");
-out.println("<div class='cp-text'>");
+out.println("<div>");
+out.println("<div>");
 
 out.println("<form action='Final.html' method='post'>");
 out.println("<div class='inner-holder'>");
-out.println("<table class='table' style='margin-top:-4%;margin-left:-41%'>");
+out.println("<table class='table'>");
 out.println("<tr>");
 out.println("<th style='border:none;'>Selected Vechile :</th>" );
 out.println("<td style='border:none;'>" +car+"</td>");
@@ -245,7 +240,7 @@ out.println("</table>");
 out.println("<input type='hidden' name='source' id='source'  value='" +source+"'/>");
 out.println("<input type='hidden' name='destination' id='destination'  value='" +destination+"'/>");
 
-out.println("<input type='submit' value='proceed'>");
+out.println("<input type='submit' value='proceed' style='margin-left:39%;'>");
 out.println("</div>");
 out.println("</form>");
 
@@ -441,6 +436,12 @@ out.println("</div>");
 	        
 	
 	    </script>
+	    
+	    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="js/jquery.slimscroll.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+<script src="js/jquery.scrollTo.js"></script>
+	    
 
 
 </body>

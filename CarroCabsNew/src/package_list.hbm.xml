@@ -15,6 +15,10 @@
 			<column name="pack_image" />
 		</property>
 	
+	<property name="pack_sightimage" type="string">
+			<column name="pack_sightimage" />
+		</property>
+	
 		<set name="sight_seen" table="package_sightseen" cascade="all">
 			<key>
 				<column name="pack_id" not-null="true"></column>

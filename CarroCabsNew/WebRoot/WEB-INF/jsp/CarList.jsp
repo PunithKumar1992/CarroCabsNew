@@ -66,14 +66,13 @@ String imgpath;
 </ul>
 </li>
 <li><a href=packages.html">Packages</a></li>
-<li><a href="faq.html">FAQs</a>
-</li>
+
 <!-- <li><a href="booking.html">View a booking</a> -->
 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages <i class="fa fa-angle-down"></i></a>
 <ul class="dropdown-menu" role="menu">
-<li><a href="gallery.html">Gallery</a>
-</li>
 <li><a href="testimonial.html">Testimonial</a></li>
+<li><a href="faq.html">FAQs</a>
+</li>
 </ul>
 </li>
 <li><a href="contact-us.html">Contact Us
@@ -117,11 +116,12 @@ String imgpath;
 </ul>
 </li>
 <li><a href="packages.html">Packages</a></li>
-<li><a href="faq.html">FAQs</a>
-</li>
+
 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pages <i class="fa fa-angle-down"></i></a>
 <ul class="dropdown-menu" role="menu">
 <li><a href="testimonial.html">Testimonial</a></li>
+<li><a href="faq.html">FAQs</a>
+</li>
 </ul>
 </li>
 <li><a href="contact-us.html">Contact Us</a>
@@ -288,5 +288,11 @@ out.println("</div>");
   $('.preloader_wrapper').delay(600).fadeOut("slow"); 
    });
 </script>
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="js/jquery.slimscroll.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+<script src="js/jquery.scrollTo.js"></script>
+
 </body>
 </html>

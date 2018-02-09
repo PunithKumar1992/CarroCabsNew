@@ -12,6 +12,7 @@ public class Package_list {
 	private Set<Packge_vehiclelist>vehicle_name=new HashSet<Packge_vehiclelist>();
 	private Set<Packge_vehiclelist>price=new HashSet<Packge_vehiclelist>();
 	private Set<Packge_vehiclelist>pack_vehicleimage=new HashSet<Packge_vehiclelist>();
+	private String pack_sightimage;
 	
 	
 	public Package_list()
@@ -72,6 +73,15 @@ public Set<Packge_vehiclelist> getVehicle_name() {
 	}
 	public void setPack_vehicleimage(Set<Packge_vehiclelist> pack_vehicleimage) {
 		this.pack_vehicleimage = pack_vehicleimage;
+	}
+	
+	
+
+public String getPack_sightimage() {
+		return pack_sightimage;
+	}
+	public void setPack_sightimage(String pack_sightimage) {
+		this.pack_sightimage = pack_sightimage;
 	}
 public String toString()
 {

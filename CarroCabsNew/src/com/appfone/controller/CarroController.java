@@ -13,6 +13,7 @@ import javax.ws.rs.PathParam;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.appfone.carro.Daoimpl.AirportbookingDaoimpl;
 import com.appfone.carro.Daoimpl.PackagebookingDaoimpl;
 import com.appfone.carro.Daoimpl.TripbookingDaoimpl;
+import com.appfone.carro.pojo.Trip;
 import com.appfone.carro.util.Airportpdf;
 import com.appfone.carro.util.EmailUtility;
 import com.appfone.carro.util.Packagepdf;
@@ -132,7 +134,7 @@ public class CarroController
   @RequestMapping({"/CarList"})
   public ModelAndView CarListControll(@RequestParam Map<String, String> reqpar, HttpServletRequest request)
   {
-    HttpSession session = request.getSession();
+    HttpSession session = request.getSession(false);
     String way = (String)reqpar.get("way");
     String source = (String)reqpar.get("source");
     String destination = (String)reqpar.get("destination");
@@ -154,11 +156,15 @@ public class CarroController
     return mv;
   }
   
+  
+  
+  
+  
 
-  @RequestMapping(value="/Contactinfo", method=RequestMethod.POST)
+  @RequestMapping(value="/Contactinfo")
   public ModelAndView contactinfoControll(@RequestParam Map<String, String> reqparameter, HttpServletRequest request)
   {
-    HttpSession session = request.getSession();
+    HttpSession session = request.getSession(false);
     String car = (String)reqparameter.get("car");
     String perday = (String)reqparameter.get("perday");
     String price = (String)reqparameter.get("price");
@@ -256,7 +262,7 @@ public class CarroController
     return mv;
   }
 
-  @RequestMapping(value="/AirCarList",method=RequestMethod.POST)
+  @RequestMapping(value="/AirCarList")
   public ModelAndView aircarlistControll(@RequestParam Map<String, String>reqparam,HttpServletRequest request)
   {
 	HttpSession session = request.getSession();
@@ -294,7 +300,7 @@ public class CarroController
     return mv;
   }
   
-  @RequestMapping(value="/airBooking",method=RequestMethod.POST)
+  @RequestMapping(value="/airBooking")
   public ModelAndView airbookingControll(@RequestParam Map<String, String>reqparam,HttpServletRequest request)
   {
 	  HttpSession session = request.getSession();
@@ -312,7 +318,7 @@ public class CarroController
     return mv;
   }
   
-  @RequestMapping(value="/airportFinal",method=RequestMethod.POST)
+  @RequestMapping(value="/airportFinal")
   public ModelAndView airportFinalControll(HttpServletRequest request,HttpServletResponse response)
   {
 	  HttpSession session=request.getSession();
@@ -439,7 +445,7 @@ public class CarroController
     return mv;
   }
   
-  @RequestMapping(value="/packageFinal",method=RequestMethod.POST)
+  @RequestMapping(value="/packageFinal")
   public ModelAndView packageFinalControll(HttpServletRequest request,HttpServletResponse response)
   {
 	  HttpSession session=request.getSession();

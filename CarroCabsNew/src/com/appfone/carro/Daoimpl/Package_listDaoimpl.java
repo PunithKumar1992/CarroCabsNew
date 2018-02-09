@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -21,6 +22,8 @@ public class Package_listDaoimpl implements Package_listDao {
 	private int size = 0;
 	private String[] package_list;
 	private String[] pack_images;
+	private String pack_sightimages;
+	private String pack_selected;
 
 	@Override
 	public int getcountlist() {
@@ -57,18 +60,8 @@ public class Package_listDaoimpl implements Package_listDao {
 
 	}
 
-	public static void main(String[] args) {
-		int count = 0;
-		Package_listDaoimpl package_list = new Package_listDaoimpl();
-		count = package_list.getcountlist();
-		String package_list1[] = new String[count];
-		package_list1 = package_list.getPackagenameslist();
-		for (int i = 0; i < count; i++) {
+	
 
-			System.out.println(package_list1[i]);
-		}
-
-	}
 
 	@Override
 	public String[] getpack_imagelist() {
@@ -91,5 +84,31 @@ public class Package_listDaoimpl implements Package_listDao {
 		return pack_images;
 
 	}
+
+	@Override
+	public String getpack_sightimagelist(String packselected) {
+		SessionFactory factory=HibernateUtil.getSessionFactory();
+	    Session session = factory.openSession();
+		Transaction t = session.beginTransaction();
+		Vehicle_list v_list = new Vehicle_list();
+		 String sql="select pack_sightimage from package_list p where  p.pack_name='"+packselected+"'";
+		    SQLQuery query = session.createSQLQuery(sql);
+		    query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+		List list= query.list();
+		    Iterator itr1 = list.iterator();
+		while (itr1.hasNext()) {
+			pack_sightimages=itr1.next().toString();
+		}
+		pack_sightimages=pack_sightimages.substring(17);
+		pack_sightimages=pack_sightimages.replace('}', ' ');
+		
+		
+		return pack_sightimages;
+		
+	}
+	
+	
+
+	
 
 }
