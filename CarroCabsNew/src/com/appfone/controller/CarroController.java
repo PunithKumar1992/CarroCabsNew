@@ -132,9 +132,9 @@ public class CarroController
   
 
   @RequestMapping({"/CarList"})
-  public ModelAndView CarListControll(@RequestParam Map<String, String> reqpar, HttpServletRequest request)
+  public String CarListControll(@RequestParam Map<String, String> reqpar, HttpServletRequest request)
   {
-    HttpSession session = request.getSession(false);
+    HttpSession session = request.getSession();
     String way = (String)reqpar.get("way");
     String source = (String)reqpar.get("source");
     String destination = (String)reqpar.get("destination");
@@ -153,18 +153,23 @@ public class CarroController
     
     ModelAndView mv = new ModelAndView();
     mv.setViewName("CarList");
-    return mv;
+    return "redirect:/carlist-page.html";
   }
   
   
-  
+  @RequestMapping(value = "/carlist-page")
+  public ModelAndView handleRegistrationDone(){
+	  ModelAndView mv = new ModelAndView();
+	    mv.setViewName("CarList");
+      return mv;
+  }
   
   
 
   @RequestMapping(value="/Contactinfo")
-  public ModelAndView contactinfoControll(@RequestParam Map<String, String> reqparameter, HttpServletRequest request)
+  public String contactinfoControll(@RequestParam Map<String, String> reqparameter, HttpServletRequest request)
   {
-    HttpSession session = request.getSession(false);
+    HttpSession session = request.getSession();
     String car = (String)reqparameter.get("car");
     String perday = (String)reqparameter.get("perday");
     String price = (String)reqparameter.get("price");
@@ -175,13 +180,17 @@ public class CarroController
     session.setAttribute("price", price);
     session.setAttribute("driverbata", driverbata);
     session.setAttribute("vimage", vimage);
-    
-
-    
-    ModelAndView mv = new ModelAndView();
-    mv.setViewName("Contactinfo");
-    return mv;
+   
+    return "redirect:/contactinfo-page.html";
   }
+  
+  @RequestMapping(value = "/contactinfo-page")
+  public ModelAndView contactinfoDone(){
+	  ModelAndView mv = new ModelAndView();
+	    mv.setViewName("Contactinfo");
+      return mv;
+  }
+  
   
   
   @RequestMapping({"/CarListl"})
@@ -193,7 +202,7 @@ public class CarroController
   }
   
   @RequestMapping({"/Booking"})
-  public ModelAndView bookingControll(@RequestParam Map<String, String> reqparam,HttpServletRequest request)
+  public String bookingControll(@RequestParam Map<String, String> reqparam,HttpServletRequest request)
   {
 	  HttpSession session= request.getSession();
 	  String fullname=reqparam.get("fullname");
@@ -206,9 +215,16 @@ public class CarroController
 	  session.setAttribute("address", address);
     ModelAndView mv = new ModelAndView();
     mv.setViewName("booking");
-    return mv;
+    return "redirect:/booking-page.html";
   }
   
+  
+  @RequestMapping(value = "/booking-page")
+  public ModelAndView bookingDone(){
+	  ModelAndView mv = new ModelAndView();
+	    mv.setViewName("booking");
+      return mv;
+  }
   
   
   
@@ -257,18 +273,21 @@ public class CarroController
 	       				+ "Approx amount :"+grandtotal +"0 Rs";
 	    		   
 	       String sms2= new SmsApi().sendSms(/*"9886038268,7353723333"*/"9845214968,8951858472", userMsg);
-    ModelAndView mv = new ModelAndView();
-    mv.setViewName("popup");
-    return mv;
+  
+	       ModelAndView mv = new ModelAndView();
+		    mv.setViewName("popup");
+		    return mv;
   }
+  
+  
 
   @RequestMapping(value="/AirCarList")
-  public ModelAndView aircarlistControll(@RequestParam Map<String, String>reqparam,HttpServletRequest request)
+  public String aircarlistControll(@RequestParam Map<String, String>reqparam,HttpServletRequest request)
   {
 	HttpSession session = request.getSession();
 	String airway=reqparam.get("airway");
-	String airsource=reqparam.get("airsource");
-	String airdestination=reqparam.get("airdestination");
+	String airsource=reqparam.get("airsource1");
+	String airdestination=reqparam.get("airdestination1");
 	String airdate=reqparam.get("airdate");
 	
 	session.setAttribute("airway", airway);
@@ -276,13 +295,26 @@ public class CarroController
 	session.setAttribute("airdestination", airdestination);
 	session.setAttribute("airdate", airdate);
 	
+	System.out.println("air source is :"+airsource);
+	System.out.println("air destination is :"+airdestination);
+	
+	
     ModelAndView mv = new ModelAndView();
     mv.setViewName("aircarlist");
-    return mv;
+    return "redirect:/aircarlist-page.html";
   }
   
+  @RequestMapping(value = "/aircarlist-page")
+  public ModelAndView aircarlistpageDone(){
+	  ModelAndView mv = new ModelAndView();
+	    mv.setViewName("aircarlist");
+      return mv;
+  }
+  
+  
+  
   @RequestMapping({"/Aircontactinfo"})
-  public ModelAndView aircontactinfoControll(@RequestParam Map<String, String> reqparam,HttpServletRequest request)
+  public String aircontactinfoControll(@RequestParam Map<String, String> reqparam,HttpServletRequest request)
   {
 	  HttpSession session=request.getSession();
 	  String aircar=reqparam.get("aircar");
@@ -297,11 +329,20 @@ public class CarroController
 	  
     ModelAndView mv = new ModelAndView();
     mv.setViewName("aircontactinfo");
-    return mv;
+    return "redirect:/aircontactinfo-page.html";
   }
+
+  @RequestMapping(value = "/aircontactinfo-page")
+  public ModelAndView aircontactinfopageDone(){
+	  ModelAndView mv = new ModelAndView();
+	    mv.setViewName("aircontactinfo");
+      return mv;
+  }
+
+  
   
   @RequestMapping(value="/airBooking")
-  public ModelAndView airbookingControll(@RequestParam Map<String, String>reqparam,HttpServletRequest request)
+  public String airbookingControll(@RequestParam Map<String, String>reqparam,HttpServletRequest request)
   {
 	  HttpSession session = request.getSession();
 	  
@@ -315,8 +356,17 @@ public class CarroController
 	session.setAttribute("airaddress", airaddress);
     ModelAndView mv = new ModelAndView();
     mv.setViewName("airBooking");
-    return mv;
+    return "redirect:/airBooking-page.html";
   }
+  
+  
+  @RequestMapping(value = "/airBooking-page")
+  public ModelAndView airBookingpageDone(){
+	  ModelAndView mv = new ModelAndView();
+	    mv.setViewName("airBooking");
+      return mv;
+  }
+  
   
   @RequestMapping(value="/airportFinal")
   public ModelAndView airportFinalControll(HttpServletRequest request,HttpServletResponse response)
@@ -371,7 +421,7 @@ public class CarroController
   }
   
   @RequestMapping(value="/package_info1")
-  public ModelAndView package_info1Controll(@RequestParam Map<String, String>reqparam,HttpServletRequest request)
+  public String package_info1Controll(@RequestParam Map<String, String>reqparam,HttpServletRequest request)
   {
 
 	  String packselected=reqparam.get("packselected");
@@ -382,19 +432,39 @@ public class CarroController
 	  
 	      ModelAndView mv = new ModelAndView();
     mv.setViewName("package_info1");
-    return mv;
+    return "redirect:/package_info1-page.html";
   }
+
+  @RequestMapping(value = "/package_info1-page")
+  public ModelAndView package_info1pageDone(){
+	  ModelAndView mv = new ModelAndView();
+	    mv.setViewName("package_info1");
+      return mv;
+  }
+
+ 
   
   @RequestMapping(value="/PackCarList")
-  public ModelAndView PackCarListControll()
+  public String PackCarListControll()
   {
     ModelAndView mv = new ModelAndView();
     mv.setViewName("PackCarList");
-    return mv;
+    return "redirect:/PackCarList-page.html";
   }
+
+  
+  @RequestMapping(value = "/PackCarList-page")
+  public ModelAndView PackCarListpageDone(){
+	  ModelAndView mv = new ModelAndView();
+	    mv.setViewName("PackCarList");
+      return mv;
+  }
+
+ 
+  
   
   @RequestMapping({"/packagecontact_info"})
-  public ModelAndView packagecontact_infoControll(@RequestParam Map<String, String> reqparam,HttpServletRequest request)
+  public String packagecontact_infoControll(@RequestParam Map<String, String> reqparam,HttpServletRequest request)
   {
 	  HttpSession session = request.getSession();
 	  String package_vehiclename=reqparam.get("package_vehiclename");
@@ -408,8 +478,18 @@ public class CarroController
 	 
     ModelAndView mv = new ModelAndView();
     mv.setViewName("packagecontact_info");
-    return mv;
+    return "redirect:/packagecontact-info-page.html";
   }
+  
+  
+  @RequestMapping(value = "/packagecontact-info-page")
+  public ModelAndView packagecontact_info_pageDone(){
+	  ModelAndView mv = new ModelAndView();
+	    mv.setViewName("packagecontact_info");
+      return mv;
+  }
+
+  
   
   @RequestMapping({"/package_info2"})
   public ModelAndView package_info2Controll()
@@ -421,7 +501,7 @@ public class CarroController
   }
   
   @RequestMapping({"/packagebooking"})
-  public ModelAndView packageFinalControll(@RequestParam Map<String, String>reqparam,HttpServletRequest request)
+  public String packageFinalControll(@RequestParam Map<String, String>reqparam,HttpServletRequest request)
   {
 	  HttpSession session=request.getSession();
 	 String packagefullname=reqparam.get("packagefullname");
@@ -442,8 +522,18 @@ public class CarroController
 	 
     ModelAndView mv = new ModelAndView();
     mv.setViewName("packagebooking");
+    return "redirect:/packagebooking-page.html";
+  }
+  
+  @RequestMapping({"/packagebooking-page"})
+  public ModelAndView packagebooking_pageControll()
+  {
+	 
+    ModelAndView mv = new ModelAndView();
+    mv.setViewName("packagebooking");
     return mv;
   }
+  
   
   @RequestMapping(value="/packageFinal")
   public ModelAndView packageFinalControll(HttpServletRequest request,HttpServletResponse response)

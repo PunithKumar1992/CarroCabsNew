@@ -88,7 +88,7 @@ String imgpath;
 <div class="col-md-3 col-sm-12 col-xs-6" >
 
 <strong class="cp-logo">
-<a href="index.html"><img src="images/cp-logo.png" alt=""></a>
+<a href="index.jsp"><img src="images/cp-logo.png" alt=""></a>
 </strong>
 </div>
 <div class="col-md-9 col-sm-12 col-xs-6">

@@ -241,6 +241,11 @@ select[disabled]
 cursor:not-allowed;
 }
 
+input[type=text]:[disabled]
+{
+cursor:not-allowed;
+}
+
 </style>
 <form method="post" action="CarList.html" >
 
@@ -319,6 +324,11 @@ cursor:not-allowed;
   <div class="col-md-2" style="padding-right: 19%;">  
 <input type="text"  id="datepicker2" name="airdate" placeholder="&#xf073; Date"  required/>
 </div>
+
+<input type="hidden"  id="airsource1" name="airsource1" />
+
+  
+<input type="hidden"  id="airdestination1" name="airdestination1" />
 <div class="col-md-2">
 <input type="submit" value="Go">
 </div>
@@ -713,41 +723,78 @@ One Way Rental and how much they cost?
 
 <div id="Mysore Coorg 3Days 2Night Package" class="tabcontent">
   <h3>Mysore Coorg 3Days 2Night Package</h3>
-  <p style="color:white;">Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort.</p>
+  <p style="color:white;text-align: justify;">Palaces
+      1.Mysore Palace is a palace situated in the centre of the city. It was the official residence of the former royal family of Mysore and also housed the durbar (royal offices).<br>
+      2.Lalitha Mahal is the second largest palace in Mysore. It is located near the Chamundi Hills, east of the city. The architect of this palace was E. W. Fritchley. The palace was built by Krishnaraja Wodeyar IV in 1921 for the exclusive stay of the Viceroy of India. The palace is pure white in color and is built in the style of Italian palazzos with twin ionic columns and domes. It also has a sprawling terrace and landscaped gardens.<br>
+      3.Jaganmohana Palace was built in 1861 by Krishnaraja Wodeyar III in a predominantly Hindu style to serve as an alternate palace for the royal family. This palace housed the royal family when the older Mysore Palace burned down due to a fire. The palace has three floors and has stained glass shutters and ventilators. It has housed the Sri Jayachamarajendra Art Gallery since the year 1915. The collections exhibited here include paintings from the famous Indian painter, Raja Ravi Varma, the Russian painter Svetoslav Roerich, and many paintings of the Mysore painting style<br>
+      4.The Brindavan Gardens, Srirangapatna, Mandya district are show gardens that have a beautiful botanical park, full of fountains, as well as boats in the river beneath the dam. Diwans of Mysore planned and built the gardens in connection with the construction of the dam. Display items include a musical fountain. Various biological research departments are housed here. There is a guest house for tourists as well. It is situated at Krishna Raja Sagara (KRS) dam Mandya district<br>
+5.Kodagu is rated as one of the top hill station destinations in India. Some of the most popular tourist attractions in Kodagu include Talakaveri, Bhagamandala, Nisargadhama, Abbey Falls, Dubare, Nagarahole National Park, Iruppu Falls, and the Tibetan Buddhist Golden Temple.</p>
 </div>
 
 <div id="Mysore Ooty 3 Night 4Days Package" class="tabcontent">
   <h3>Mysore Ooty 3 Night 4Days Package</h3>
-  <p style="color:white;">Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort.</p> 
+  <p style="color:white;text-align: justify;">1.Mysore Palace is a palace situated in the centre of the city. It was the official residence of the former royal family of Mysore and also housed the durbar (royal offices).<br>
+      2.Lalitha Mahal is the second largest palace in Mysore. It is located near the Chamundi Hills, east of the city. The architect of this palace was E. W. Fritchley. The palace was built by Krishnaraja Wodeyar IV in 1921 for the exclusive stay of the Viceroy of India. The palace is pure white in color and is built in the style of Italian palazzos with twin ionic columns and domes. It also has a sprawling terrace and landscaped gardens.<br>
+      3.Jaganmohana Palace was built in 1861 by Krishnaraja Wodeyar III in a predominantly Hindu style to serve as an alternate palace for the royal family. This palace housed the royal family when the older Mysore Palace burned down due to a fire. The palace has three floors and has stained glass shutters and ventilators. It has housed the Sri Jayachamarajendra Art Gallery since the year 1915. The collections exhibited here include paintings from the famous Indian painter, Raja Ravi Varma, the Russian painter Svetoslav Roerich, and many paintings of the Mysore painting style<br>
+      4.The Brindavan Gardens, Srirangapatna, Mandya district are show gardens that have a beautiful botanical park, full of fountains, as well as boats in the river beneath the dam. Diwans of Mysore planned and built the gardens in connection with the construction of the dam. Display items include a musical fountain. Various biological research departments are housed here. There is a guest house for tourists as well. It is situated at Krishna Raja Sagara (KRS) dam Mandya district.<br>
+      5. The Botanical Garden is lush, green, and well-maintained. A flower show along with an exhibition of rare plant species is held every May. <br>
+6.Pykara is a river located 19 km from Ooty.The Pykara is considered very sacred by the Todas. The Pykara river rises at Mukurthi peak and passes through hilly tract, generally keeping to North and turns to West after reaching the Plateau's edge.<br> 
+7.Doddabetta is the highest peak (2,623 m) in the Nilgiris, about 10 km from Ooty. It lies at the junction of the Western and Eastern Ghats surrounded by dense Sholas.</p>
+
 </div>
 
 <div id="Mysore Ooty and Kodaikanal 5Night 6Days Package" class="tabcontent">
   <h3>Mysore Ooty and Kodaikanal 5Night 6Days Package</h3>
-  <p style="color:white;">Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort.</p>
+  <p style="color:white;text-align: justify;">1.Mysore Palace is a palace situated in the centre of the city. It was the official residence of the former royal family of Mysore and also housed the durbar (royal offices).<br>
+      2.Lalitha Mahal is the second largest palace in Mysore. It is located near the Chamundi Hills, east of the city. The architect of this palace was E. W. Fritchley. The palace was built by Krishnaraja Wodeyar IV in 1921 for the exclusive stay of the Viceroy of India. The palace is pure white in color and is built in the style of Italian palazzos with twin ionic columns and domes. It also has a sprawling terrace and landscaped gardens.<br>
+      3.Jaganmohana Palace was built in 1861 by Krishnaraja Wodeyar III in a predominantly Hindu style to serve as an alternate palace for the royal family. This palace housed the royal family when the older Mysore Palace burned down due to a fire. The palace has three floors and has stained glass shutters and ventilators. It has housed the Sri Jayachamarajendra Art Gallery since the year 1915. The collections exhibited here include paintings from the famous Indian painter, Raja Ravi Varma, the Russian painter Svetoslav Roerich, and many paintings of the Mysore painting style<br>
+      4.The Brindavan Gardens, Srirangapatna, Mandya district are show gardens that have a beautiful botanical park, full of fountains, as well as boats in the river beneath the dam. Diwans of Mysore planned and built the gardens in connection with the construction of the dam. Display items include a musical fountain. Various biological research departments are housed here. There is a guest house for tourists as well. It is situated at Krishna Raja Sagara (KRS) dam Mandya district.<br>
+      5. The Botanical Garden is lush, green, and well-maintained. A flower show along with an exhibition of rare plant species is held every May.<br> 
+      6.Pykara is a river located 19 km from Ooty.The Pykara is considered very sacred by the Todas. The Pykara river rises at Mukurthi peak and passes through hilly tract, generally keeping to North and turns to West after reaching the Plateau's edge.<br> 
+      7.Doddabetta is the highest peak (2,623 m) in the Nilgiris, about 10 km from Ooty. It lies at the junction of the Western and Eastern Ghats surrounded by dense Sholas<br>
+8.Kodaikanal lake,Bryant Parks,Green Valley view,Pillar rocks,Guna caves,Dolphin nose,Berijam Lake.</p>
 </div>
 <div id="Mysore Waynad 3Night 4Days Package" class="tabcontent">
   <h3>Mysore Waynad 3Night 4Days Package</h3>
-  <p style="color:white;">Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort.</p>
+  <p style="color:white;text-align: justify;">1.Mysore Palace is a palace situated in the centre of the city. It was the official residence of the former royal family of Mysore and also housed the durbar (royal offices).<br>
+      2.Lalitha Mahal is the second largest palace in Mysore. It is located near the Chamundi Hills, east of the city. The architect of this palace was E. W. Fritchley. The palace was built by Krishnaraja Wodeyar IV in 1921 for the exclusive stay of the Viceroy of India. The palace is pure white in color and is built in the style of Italian palazzos with twin ionic columns and domes. It also has a sprawling terrace and landscaped gardens.<br>
+      3.Jaganmohana Palace was built in 1861 by Krishnaraja Wodeyar III in a predominantly Hindu style to serve as an alternate palace for the royal family. This palace housed the royal family when the older Mysore Palace burned down due to a fire. The palace has three floors and has stained glass shutters and ventilators. It has housed the Sri Jayachamarajendra Art Gallery since the year 1915. The collections exhibited here include paintings from the famous Indian painter, Raja Ravi Varma, the Russian painter Svetoslav Roerich, and many paintings of the Mysore painting style<br>
+      4.The Brindavan Gardens, Srirangapatna, Mandya district are show gardens that have a beautiful botanical park, full of fountains, as well as boats in the river beneath the dam. Diwans of Mysore planned and built the gardens in connection with the construction of the dam. Display items include a musical fountain. Various biological research departments are housed here. There is a guest house for tourists as well. It is situated at Krishna Raja Sagara (KRS) dam Mandya district.<br>
+      5. The Botanical Garden is lush, green, and well-maintained. A flower show along with an exhibition of rare plant species is held every May.<br> 
+6.Lakkidi,Wild life Santuary,Banasura sagar dam,Meppadi,Chembra Peak.</p>
 </div>
 <div id="Pondycherry 1Night 2Days Package" class="tabcontent">
   <h3>Pondycherry 1Night 2Days Package</h3>
-  <p style="color:white;">Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort.</p>
+  <p style="color:white;text-align: justify;">Pondycherry Places are Chruch of the sacred heart of jesus, Paradise Beach, Immaculate conception cathedral,
+  Chunnambar boat house, Arulmigu Manakula vinaynagar temple, French war memorial.</p>
 </div>
 <div id="Munnar and Allephy 4Night 5Days Package" class="tabcontent">
   <h3>Munnar and Allephy 4Night 5Days Package</h3>
-  <p style="color:white;">Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort..</p>
+  <p style="color:white;text-align: justify;">1.Rose garden: It is just 2 km from Munnar. The rose garden, spread over 2 acres of land, is an outstanding stretch that is brimming with a variety of plants, crops and spices. This place is situated 3500 ft above the sea level and is a breath-taking sight to behold.<br>
+      2.Mattupetti Dam: This place is situated 13 km away from Munnar at 1700 m above the sea level. This place is popular for Indo-Swiss livestock projects. This is also a well-known picnic spot for the visitors. You can explore this place by doing some intriguing activities like speed boating, horse riding, etc.<br>
+      3.Eravikulam National Park: This place is located only 45 min drive away from Munnar. This place is surrounded by a variety of flora and fauna and this is a UNESCO World Heritage site. Here you can spot many animals like elephant, Nilgiri langur, Nilgiri marten, leopard, lion-tailed macaque, a rare tiger and many more species.<br>
+Places to visit in Alleppey
+4.Backwaters of Alleppey: Alleppey is famous for its backwaters and Alleppey houseboat cruise. A houseboat cruise ride in Alleppey backwaters will certainly make your tour memorable and will rejuvenate your body and soul.<br>
+5.Arthunkal Church: This church has been shown in many Tamil and Malayalam movies. This church was built during Portuguese era. This is situated 22 km away from Alleppey. A lot of people gather in this church in the month of January during the yearly feast of St. Sebastian.<br>
+6.Revi Karunakaran Museum: If you are fervour about the old arts and crafts, then this is a worthy place to visit. Here, you can see all the collections of Revi Karunakaran family. The museum is the brainchild of Revi’s wife Betty who, after his demise, decided to exhibit all the exclusive art and artefacts that are collected by the family over the years. Here, you can find the most sought-after Swarovski crystal collection, mural painting, crystal wares, antique furniture, Tanjore paintings porcelain wares, ivory works, and many more rare and antique pieces at this museum. All the collections include pieces from Brazil, France, Burma, Venice, Vietnam and more. It is said that more than 3000 collected items are placed in this museum.</p>
 </div>
 <div id="Goa 2Night 3Days Package" class="tabcontent">
   <h3>Goa 2Night 3Days Package</h3>
-  <p style="color:white;">Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort.</p>
+  <p style="color:white;text-align: justify;">1.Arambol beach : Arambol is considered to be one of the best beaches in North Goa. Spend some time shopping. Later, grab a beer and relax at a shack as the clean sea waves reflect the gradually soaring sun. <br>
+      2. Once you have relished some delicious food, head towards Ashwem beach. This pristine beach with fine sand is perfect to laze around.<br>
+      3.Sunset at Chapora Fort<br>
+      4.In case you want to party hard, Club Cabana is the place to be The tagline, “Night Club in the sky” is almost literal. Club Cabana is located in Arpora which is around 6 km from Candolim.<br>
+5.Wrap up your night by visiting Lower Aguada Fort .</p>
 </div>
 <div id="Shirdi 2Night 3Days Package" class="tabcontent">
   <h3>Shirdi 2Night 3Days Package</h3>
-  <p style="color:white;">Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort.</p>
+  <p style="color:white;text-align: justify;">Shirdi is famously known as the home of the late 19th century saint Sri Sai Baba. The Sri Saibaba Sansthan Trust also located in Shirdi is one of the richest temple organisations.
+      shirdi near places are Ahmednagar, Mumbai, Pune, Thane, Nashik, Akluj, Dhule, Nagpur and Aurangabad..</p>
 </div>
 <div id="One day Nandhi hills Package" class="tabcontent">
   <h3>One day Nandhi hills Package</h3>
-  <p style="color:white;">Ambavilas Palace, otherwise known as the Mysore Palace, is a historical palace and a royal residence at Mysore in the southern Karnataka state of India. It is the official residence of the Wadiyar dynasty and the seat of the Kingdom of Mysore. The palace is in the centre of Mysore, and faces the Chamundi Hills eastward. Mysore is commonly described as the 'City of Palaces', and there are seven palaces including this one; however, 'Mysore Palace' refers specifically to this one within the Old Fort..</p>
+  <p style="color:white;text-align: justify;">Nandi Hills or Nandi betta (Anglicised forms include Nandidurg and Nandydoorg) is an ancient hill fortress in southern India, in the Chikkaballapur district of Karnataka state. It is 10 km from Chickballapur town and approximately 60 km from the city of Bengaluru. The hills are nestled near the town of Nandi. In traditional belief, the hills are the origin of the Arkavathy river
+  There are many stories about the origin of the name Nandi Hills. During the Chola period, Nandi Hills was called Ananda Giri meaning The Hill of Happiness. Another story is that Yoga Nandeeshwara performed penance here, and so it was named after him. Nandi is also commonly called Nandidurga (Fort) because of the fort built here by the ruler Tippu Sultan. It is also perhaps called Nandi Hills because the hills resemble a sleeping bull (Nandi)</p>
 </div>
 <script>
 function openCity(evt, cityName) {
@@ -772,57 +819,6 @@ document.getElementById("defaultOpen").click();
 </div>
 </section>
 
-<!-- <section class="cp-advertising-section pd-tb80"> -->
-<!-- <div class="container"> -->
-<!-- <div class="cp-heading-style2"> -->
-<!-- <h2>CARRO <span>Advertising</span></h2> -->
-<!-- </div> -->
-<!-- <div class="row"> -->
-<!-- <div class="col-md-4 col-sm-12"> -->
-
-<!-- <div class="cp-advertising-box"> -->
-<!-- <figure class="thumb"> -->
-<!-- <img src="images/advertising-sm-thumb-01.png" alt=""> -->
-<!-- <span class="num">1</span> -->
-<!-- </figure> -->
-<!-- <div class="cp-text"> -->
-<!-- <h4>Choose a taxi model</h4> -->
-<!-- <p>Speeding and minor offences are fine and will not incur any additional...{+}</p> -->
-<!-- </div> -->
-<!-- </div> -->
-<!-- </div> -->
-<!-- <div class="col-md-4 col-sm-12"> -->
-
-<!-- <div class="cp-advertising-box"> -->
-<!-- <figure class="thumb"> -->
-<!-- <img src="images/advertising-sm-thumb-02.png" alt=""> -->
-<!-- <span class="num">2</span> -->
-<!-- </figure> -->
-<!-- <div class="cp-text"> -->
-<!-- <h4>Advertising position</h4> -->
-<!-- <p>Speeding and minor offences are fine and will not incur any additional...{+}</p> -->
-<!-- </div> -->
-<!-- </div> -->
-<!-- </div> -->
-<!-- <div class="col-md-4 col-sm-12"> -->
-
-<!-- <div class="cp-advertising-box"> -->
-<!-- <figure class="thumb"> -->
-<!-- <img src="images/advertising-sm-thumb-03.png" alt=""> -->
-<!-- <span class="num">3</span> -->
-<!-- </figure> -->
-<!-- <div class="cp-text"> -->
-<!-- <h4>Select time period</h4> -->
-<!-- <p>Speeding and minor offences are fine and will not incur any additional...{+}</p> -->
-<!-- </div> -->
-<!-- </div> -->
-<!-- </div> -->
-<!-- <div class="col-md-12 cp-btn-holder"> -->
-<!-- <a href="#" class="cp-btn-style1">Pricing Plans</a> -->
-<!-- </div> -->
-<!-- </div> -->
-<!-- </div> -->
-<!-- </section> -->
 </div>
 
 <footer class="cp_footer">
@@ -1014,7 +1010,7 @@ function validatedays(phone)
     {
         var maintainplus = '';
     }
-    curphonevar = numval.replace(/[\\A-Za-z!"Â£$%^&\,*+_={};:'@#~,.Å \/<>?|`Â¬\]\[]/g,'');
+    curphonevar = numval.replace(/[\\A-Za-z!"ÃÂ£$%^&\,*+_={};:'@#~,.ÃÂ \/<>?|`ÃÂ¬\]\[]/g,'');
     phone.value = maintainplus + curphonevar;
     var maintainplus = '';
     phone.focus;
@@ -1197,29 +1193,51 @@ if(way=="PickUp")
 {
 var source="Kempegowda International Airport, KIAL Road, Devanahalli, Bengaluru, Karnataka, India";
 $("#airsource").val(source);
+$("#airdestination").val("");
+$("#airsource").prop('disabled', true);
+$("#airdestination").prop('disabled', false);
 
 
 }
 else if(way=="Drop")
 {
-var source="Kempegowda International Airport, KIAL Road, Devanahalli, Bengaluru, Karnataka, India";
+var destination="Kempegowda International Airport, KIAL Road, Devanahalli, Bengaluru, Karnataka, India";
 $("#airsource").val("");
-$("#airdestination").val(source);
+$("#airdestination").val(destination);
+$("#airdestination").prop('disabled', true);
+$("#airsource").prop('disabled', false);
+
+
 }
 
 else
 {
 $("#airsource").val("");
 $("#airdestination").val("");
+var source=$("#airsource").val();
+var destination=$("#airdestination").val();
+$("#airsource1").val(source);
+$("#airdestination1").val(destination);
+
+}
+
+
+
 
 
 }
+</script>
+
+<script type="text/javascript">
+$("#datepicker2").click(function (){
+
+var source = $("#airsource").val();
+var destination=$("#airdestination").val();
+$("#airsource1").val(source);
+$("#airdestination1").val(destination);
+});
 
 
-
-
-
-}
 </script>
 
 
